@@ -21,7 +21,7 @@ gulp.task('server', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src((config.dir.dest + '/*'), {
+    return gulp.src((config.dir.dest + '/**/*'), {
             read: false
         })
         .pipe(clean())
@@ -29,7 +29,7 @@ gulp.task('clean', function () {
 
 //Deploy to ghPages Task
 gulp.task('ghpages', ['build'], function () {
-    return gulp.src(config.paths.dest)
+    return gulp.src(config.dir.dest + "/**/*.*")
         .pipe(ghPages());
 });
 
