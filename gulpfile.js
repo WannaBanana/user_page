@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     notify = require("gulp-notify"),
     minifyHTML = require('gulp-minify-html'),
+    ghPages = require('gulp-gh-pages'),
     config = require('./gulpconfig');
 
 gulp.task('server', function () {
@@ -24,6 +25,12 @@ gulp.task('clean', function () {
             read: false
         })
         .pipe(clean())
+});
+
+//Deploy to ghPages Task
+gulp.task('ghpages', ['build'], function () {
+    return gulp.src(config.paths.dest)
+        .pipe(ghPages());
 });
 
 gulp.task('minify-style', function () {
@@ -62,12 +69,14 @@ gulp.task('minify-img', function () {
 });
 
 gulp.task('default', ['clean'], function () {
-    gulp.start('build');
+    gulp.start(['build', 'server']);
 });
 
-gulp.task('build', ['minify-style', 'minify-script', 'minify-html', 'minify-img', 'server'], function () {
+gulp.task('build', ['minify-style', 'minify-script', 'minify-html', 'minify-img'], function () {
     return gulp.src('')
         .pipe(notify({
             message: 'Finished!'
         }));
 });
+
+gulp.task('deploy', ['ghpages']);
