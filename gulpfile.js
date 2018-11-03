@@ -28,9 +28,9 @@ gulp.task('clean', function () {
 });
 
 //Deploy to ghPages Task
-gulp.task('ghpages', function () {
+gulp.task('ghpages', ['build'],function () {
     return gulp.src(config.dir.dest + "/**/*")
-        .pipe(ghPages());
+        .pipe(ghPages())
 });
 
 gulp.task('minify-style', function () {
