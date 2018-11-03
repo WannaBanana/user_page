@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HomePage</title>
+</head>
+<script src="./js/hash.js"></script>
+<script>
+  checkLogin() ? window.location.href = '../index.html' : "";
+</script>
+<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Montserrat|Julius+Sans+One|Josefin+Slab" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="./css/outlook.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body>
+  <div class="row">
+    <div class="col l6 m12 s12 column-full valign-wrapper setcenter">
+      <div class="row">
+        <div class="col s12 center-align">
+          <span>HELLO!</span>
+        </div>
+        <div class="col s12 colmargin">
+          <button data-target="modal1" class="btn modal-trigger">Sign In</button>
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <form class="col l12 m12 s12">
+                <div class="row">
+                  <div class="col l12 m12 s12">
+                    <h3>Sign In</h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col l12 m12 s12">
+                    <input id="signin_account" type="text" class="validate">
+                    <label for="signin_account">Account</label>
+                  </div>
+                  <div class="input-field col l12 m12 s12">
+                    <input id="signin_password" type="password" class="validate">
+                    <label for="signin_password">Password</label>
+                  </div>
+                </div>
+                <div class="input-field center-align btnmargin">
+                  <button class="btn button waves-effect" name="action" id="signin_btn">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <button class="btn button waves-effect" type="button" name="action" style="color: white;" onclick="location.href='#register'">Register</button>
+        </div>
+      </div>
+    </div>
+    <div class="col l3 m6 s12 column-full column-linefull" id="classroom">
+      Classroom
+    </div>
+    <div class="col l3 m6 s12 column-full column-linefull" id="equipment">
+      Equipment
+    </div>
+
+    <form class="col l6 m12 s12 column-full valign-wrapper" id="register">
+      <div class="row">
+        <div class="col l3 m3 s10 offset-s1 valign-wrapper setcenter">
+          <div class="avatar-upload">
+            <div class="avatar-edit">
+              <input type='file' id="register_imageUpload" accept=".png, .jpg, .jpeg" name="photo" />
+              <label for="register_imageUpload" id="label1"></label>
+            </div>
+            <div class="avatar-preview">
+              <div id="imagePreview" style="background-image: url(../img/account.png);">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-field col l4 m4 s10 offset-s1">
+          <input id="register_firstname" type="text" class="validate" name="first_name">
+          <label for="register_firstname">First Name</label>
+        </div>
+        <div class="input-field col l4 m4 s10 offset-s1">
+          <input id="register_lastname" type="text" class="validate" name="last_name">
+          <label for="register_lastname">Last Name</label>
+        </div>
+        <div class="input-field col l10 offset-l1 m10 offset-m1 s10 offset-s1">
+          <input id="register_email" type="email" class="validate" name="email">
+          <label for="register_email">E-mail</label>
+        </div>
+        <div class="input-field col l10 offset-l1 m10 offset-m1 s10 offset-s1">
+          <input id="register_password" type="password" class="validate" name="password">
+          <label for="register_password">Password</label>
+        </div>
+        <div class="input-field col l10 offset-l1 m10 offset-m1 s10 offset-s1">
+          <input id="register_stuid" type="text" class="validate" name="student_id">
+          <label for="register_stuid">Student ID</label>
+        </div>
+        <div class="input-field col l10 offset-l1 m10 offset-m1 s10 offset-s1">
+          <input id="register_cellphone" type="tel" class="validate" name="cellphone">
+          <label for="register_cellphone">Cellphone</label>
+        </div>
+        <div class="input-field col l12 m12 s12 btnmargin">
+          <button class="btn button waves-effect" style="color: white;" id="submitregister" />
+          Submit
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="col l6 m12 s12 column-full valign-wrapper">
+      <div class="row">
+        <div class="col l12 offset-l5 m12 offset-m7 s12 offset-s2 card setcenter">
+          <div class="row">
+            <div class="col l12 m12 s12">
+              <span class="white-text">
+                SIGN UP<br>HERE !<br>
+                <span style="font-size:40px;">Join Us Now !</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./js/function.js"></script>
+</body>
+<footer>
+  copyright © 2018 All rights reserved.
+</footer>
+
+</html>
