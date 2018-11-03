@@ -28,8 +28,8 @@ gulp.task('clean', function () {
 });
 
 //Deploy to ghPages Task
-gulp.task('ghpages', ['build'], function () {
-    return gulp.src(config.dir.dest + "/**/*.*")
+gulp.task('ghpages', function () {
+    return gulp.src(config.dir.dest + "/**/*")
         .pipe(ghPages());
 });
 
