@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" type="text/css" href="./css/loginOutlook.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -48,9 +48,11 @@
     <ul>
       <li><a class="btn-floating deep-orange modal-trigger" data-target="modal3"><i class="material-icons">new_releases</i></a>
       </li>
-      <li><a class="btn-floating deep-orange lighten-1 modal-trigger" data-target="modal2"><i class="material-icons">account_circle</i></a>
+      <li><a class="btn-floating deep-orange lighten-1 modal-trigger" data-target="modal4"><i class="material-icons">ballot</i></a>
       </li>
-      <li><a id="logoutBtn" class="btn-floating deep-orange lighten-2"><i class="material-icons">exit_to_app</i></a>
+      <li><a class="btn-floating deep-orange lighten-2 modal-trigger" data-target="modal2"><i class="material-icons">account_circle</i></a>
+      </li>
+      <li><a id="logoutBtn" class="btn-floating deep-orange lighten-2" onclick="logout()"><i class="material-icons">exit_to_app</i></a>
       </li>
     </ul>
   </div>
@@ -135,6 +137,133 @@
           <div class="collapsible-body"><span>Audit notification.</span></div>
         </li>
       </ul>
+    </div>
+  </div>
+  <!-- all list -->
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+        <li class="tab"><a href="#classroomrecord">教室預約記錄</a></li>
+        <li class="tab"><a href="#itemrecord">物品借閱記錄</a></li>
+      </ul>
+      <div id="classroomrecord" class="col s12">
+        <div class="row">
+          <div class="col-s12 text-md-right">
+            <a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a>
+          </div>
+          <div class="col s12">
+            <table>
+              <thead class="btn-border">
+                <tr class="titlebackground">
+                  <th>
+                    <label>
+                      <input type="checkbox" class="checkAll1" />
+                      <span>　</span>
+                    </label>
+                  </th>
+                  <th>教室</th>
+                  <th>日期</th>
+                  <th>起始時間</th>
+                  <th>結束時間</th>
+                  <th>用途</th>
+                  <th>重複</th>
+                </tr>
+              </thead>
+              <form action="#" id="myForm">
+                <tbody id="table-content">
+                  <tr>
+                    <td>
+                      <label>
+                        <input type="checkbox" name="room-checkbox[]" value="456" />
+                        <span>　</span>
+                      </label>
+                    </td>
+                    <td>管204</td>
+                    <td>2018/10/09</td>
+                    <td>10:00</td>
+                    <td>16:00</td>
+                    <td>校內用途</td>
+                    <td>單周</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>
+                        <input type="checkbox" name="room-checkbox[]" value="456" />
+                        <span>　</span>
+                      </label>
+                    </td>
+                    <td>管204</td>
+                    <td>2018/10/09</td>
+                    <td>10:00</td>
+                    <td>16:00</td>
+                    <td>校內用途</td>
+                    <td>單周</td>
+                  </tr>
+                </tbody>
+              </form>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="itemrecord" class="col s12">
+        <div class="row">
+          <div class="col-s12 text-md-right">
+            <a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a>
+          </div>
+          <div class="col s12">
+            <table>
+              <thead class="btn-border">
+                <tr class="titlebackground">
+                  <th>
+                    <label>
+                      <input type="checkbox" class="checkAll2" />
+                      <span>　</span>
+                    </label>
+                  </th>
+                  <th>物品</th>
+                  <th>日期</th>
+                  <th>起始時間</th>
+                  <th>結束時間</th>
+                  <th>用途</th>
+                  <th>重複</th>
+                </tr>
+              </thead>
+              <form action="#" id="myForm">
+                <tbody id="table-content">
+                  <tr>
+                    <td>
+                      <label>
+                        <input type="checkbox" name="item-checkbox[]" value="456" />
+                        <span>　</span>
+                      </label>
+                    </td>
+                    <td>歐陽俊傑</td>
+                    <td>2018/10/09</td>
+                    <td>10:00</td>
+                    <td>16:00</td>
+                    <td>校內用途</td>
+                    <td>單周</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>
+                        <input type="checkbox" name="item-checkbox[]" value="456" />
+                        <span>　</span>
+                      </label>
+                    </td>
+                    <td>量子電腦</td>
+                    <td>2018/10/09</td>
+                    <td>10:00</td>
+                    <td>16:00</td>
+                    <td>校內用途</td>
+                    <td>單周</td>
+                  </tr>
+                </tbody>
+              </form>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="js/loginpage.js"></script>

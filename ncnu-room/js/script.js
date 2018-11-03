@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $('.tabs').tabs();
+    $('.modal').modal();
+    $('.collapsible').collapsible();
     M.AutoInit();
 
     var roomTitle = "",
@@ -58,8 +61,8 @@ $(document).ready(function () {
                     if (res.hasOwnProperty(key)) {
                         for (const inner_key in res[key]) {
                             if (res[key].hasOwnProperty(inner_key)) {
-                                if(res[key][inner_key].state == "未核准"){
-                                    if(res[key][inner_key].name == getCookie("key")){
+                                if (res[key][inner_key].state == "未核准") {
+                                    if (res[key][inner_key].name == getCookie("key")) {
                                         res[key][inner_key].color = "orange";
                                     } else {
                                         res[key][inner_key].color = "red";
@@ -102,12 +105,14 @@ $(document).ready(function () {
         e.preventDefault();
         let alertText = "";
         if (roomId == 0 || roomTitle == "") {
-            alertText = `<h4 class="center-align">請選擇院別/教室!</h4>`;
+            alertText = `<h4 class="center-align" style="font-family:'微軟正黑體';">請選擇院別/教室!</h4>`;
             $(".modal-footer").html(`
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>`);
         } else {
             alertText = `
-            <h4>請輸入預約資訊</h4>
+            <div style="padding-bottom:10px">
+                <span style="font-size:26px;font-family:'微軟正黑體';">預約資訊</span>
+            </div>
             <div class="chip">
                 ${roomTitle[0]}${roomId}
             </div>
@@ -128,10 +133,10 @@ $(document).ready(function () {
             </div>
             `;
             $(".modal-footer").html(`
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-            <button id="subBtn" class="btn waves-effect waves-light">Submit
-                <i class="material-icons right">send</i>
-            </button>`);
+            <div class="modalbtn">
+            <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
+            <button id="subBtn" class="btn waves-effect">
+            Send</button>`);
         }
         $("#reserve-form").html(alertText);
         M.Datepicker.init(document.querySelectorAll('.datepicker'), {
@@ -191,7 +196,7 @@ $(document).ready(function () {
         } else {
             eventData.name = userName;
         }
-        if(des == ""){
+        if (des == "") {
             alert("請輸入描述");
             return;
         } else {
@@ -226,4 +231,27 @@ $(document).ready(function () {
             instance.close();
         }
     }
+
+    /* List Select All */
+    function eventBind() {
+        $(document).change(function () {
+            var all = $("#myForm").serializeArray();
+            console.log(all);
+        });
+        $(".checkAll1").click(function () {
+            if ($(".checkAll1").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+                $("input[name='room-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+            } else {
+                $("input[name='room-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+            }
+        })
+        $(".checkAll2").click(function () {
+            if ($(".checkAll2").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+                $("input[name='item-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+            } else {
+                $("input[name='item-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+            }
+        })
+    }
+    eventBind();
 });

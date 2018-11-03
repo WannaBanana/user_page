@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $('.tabs').tabs();
+    $('.modal').modal();
+    $('.collapsible').collapsible();
     M.AutoInit();
 
     var roomTitle = "",
@@ -130,13 +133,13 @@ $(document).ready(function () {
         e.preventDefault();
         let alertText = "";
         if (roomId == 0 || roomTitle == "" || itemID == "") {
-            alertText = `<h4 class="center-align">請選擇院別/教室!</h4>`;
+            alertText = `<h4 class="center-align" style="font-family:'微軟正黑體';">請選擇院別/教室!</h4>`;
             $(".modal-footer").html(`
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>`);
         } else {
             alertText = `
             <div style="padding-bottom:10px">
-                <span style="font-size:26px;">借閱資訊</span>
+                <span style="font-size:26px;font-family:'微軟正黑體';">借閱資訊</span>
             </div>
             <div class="chip">
                 ${roomTitle[0]}${roomId} - ${itemID}
@@ -246,4 +249,27 @@ $(document).ready(function () {
             instance.close();
         }
     }
+
+    /* List Select All */
+    function eventBind() {
+        $(document).change(function () {
+            var all = $("#myForm").serializeArray();
+            console.log(all);
+        });
+        $(".checkAll1").click(function () {
+            if ($(".checkAll1").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+                $("input[name='room-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+            } else {
+                $("input[name='room-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+            }
+        })
+        $(".checkAll2").click(function () {
+            if ($(".checkAll2").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+                $("input[name='item-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+            } else {
+                $("input[name='item-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+            }
+        })
+    }
+    eventBind();
 });

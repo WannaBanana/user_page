@@ -1,7 +1,31 @@
 $(document).ready(function () {
+  $('.tabs').tabs();
   $('.modal').modal();
   $('.collapsible').collapsible();
   $('.fixed-action-btn').floatingActionButton();
+
+  /* List Select All */
+  function eventBind() {
+    $(document).change(function () {
+      var all = $("#myForm").serializeArray();
+      console.log(all);
+    });
+    $(".checkAll1").click(function () {
+      if ($(".checkAll1").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+        $("input[name='room-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+      } else {
+        $("input[name='room-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+      }
+    })
+    $(".checkAll2").click(function () {
+      if ($(".checkAll2").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+        $("input[name='item-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+      } else {
+        $("input[name='item-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+      }
+    })
+  }
+  eventBind();
 
   /* Modify -> Get JSON */
   $.ajax({
@@ -22,7 +46,7 @@ $(document).ready(function () {
         $('#modify_cardid').val(allcard);
       }
       $('#modify_cellphone').val(data.cellphone);
-      if(data.lineUserID){
+      if (data.lineUserID) {
         $("#notify").html(`
           <div class="input-field col l10 offset-l1 m10 offset-m1 s10 offset-s1">
             <input type="text" class="validate" value="${data.lineUserID}" readonly>
@@ -59,7 +83,7 @@ $(document).ready(function () {
   // 修改
   $("#submitmodify").click(function (e) {
     e.preventDefault();
-    if($("#modify_password").val() != "" && $("#modify_password").val() != $("#modify_cpassword").val()){
+    if ($("#modify_password").val() != "" && $("#modify_password").val() != $("#modify_cpassword").val()) {
       alert("新密碼兩次輸入不一致");
       return;
     }
@@ -73,7 +97,7 @@ $(document).ready(function () {
         "name": $("#modify_name").val(),
         "email": $("#modify_email").val(),
         "password": $("#before_password").val(),
-        "newpassword": $("#modify_password").val() != ""? $("#modify_password").val():"",
+        "newpassword": $("#modify_password").val() != "" ? $("#modify_password").val() : "",
         "cellphone": $("#modify_cellphone").val()
       }),
       headers: {
@@ -92,7 +116,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#logoutBtn").click(function(e){
+  $("#logoutBtn").click(function (e) {
     e.preventDefault();
     logout();
   });
