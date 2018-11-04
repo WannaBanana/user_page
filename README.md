@@ -55,6 +55,19 @@ This will build all files and deploy the git page by pushing files to branch in 
 npm run deploy
 ```
 
+If there are some errors when using command of deploy, just like
+```
+TypeError: Cannot read property '0' of null...
+```
+
+try to use
+```
+cd node_modules/gulp-gh-pages/
+npm install --save gift@0.10.2
+cd ../../
+gulp deploy
+```
+
 ## Tools
 - [Materializecss](https://materializecss.com/)
 - [Fullcalendar](https://fullcalendar.io/)
