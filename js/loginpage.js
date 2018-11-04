@@ -1,1 +1,131 @@
-$(document).ready(function(){var e;$(".tabs").tabs(),$(".modal").modal(),$(".collapsible").collapsible(),$(".fixed-action-btn").floatingActionButton(),$(document).change(function(){var e=$("#myForm").serializeArray();console.log(e)}),$(".checkAll1").click(function(){$(".checkAll1").prop("checked")?$("input[name='room-checkbox[]']").prop("checked",!0):$("input[name='room-checkbox[]']").prop("checked",!1)}),$(".checkAll2").click(function(){$(".checkAll2").prop("checked")?$("input[name='item-checkbox[]']").prop("checked",!0):$("input[name='item-checkbox[]']").prop("checked",!1)}),$.ajax({url:`https://暨大猴子.tw/api/user/${getCookie("key")}`,type:"GET",dataType:"json",success:function(e){$("#modify_imagePreview").css("background-image","url("+e.photo+")"),$("#modify_name").val(e.name),$("#userName").html(e.name),$("#modify_department").val(e.department),$("#modify_email").val(e.email);var o="";if(null!=e.card){for(var a=0;a<e.card.length;a++)o+=e.card[a].cardID+" ";$("#modify_cardid").val(o)}$("#modify_cellphone").val(e.cellphone),e.lineUserID&&$("#notify").html(`\n          <div class="input-field col l10 offset-l1 m10 offset-m1 s10 offset-s1">\n            <input type="text" class="validate" value="${e.lineUserID}" readonly>\n            <label class="active red-text" for="modify_email">Please bind the LineBot instantly!</label>\n          </div>\n        `)},error:function(){alert("ERROR!!!")}}),$("#modify_imageUpload").change(function(){!function(o){if(o.files&&o.files[0]){var a=new FileReader;a.onload=function(o){e=o.target.result,$("#modify_imagePreview").css("background-image","url("+o.target.result+")"),$("#modify_imagePrevieww").hide(),$("#modify_imagePreview").fadeIn(650)},a.readAsDataURL(o.files[0])}}(this)}),$("#submitmodify").click(function(o){o.preventDefault(),""==$("#modify_password").val()||$("#modify_password").val()==$("#modify_cpassword").val()?$.ajax({asyn:!0,crossDomain:!0,type:"PATCH",url:`https://暨大猴子.tw/api/register/${getCookie("key")}`,data:JSON.stringify({photo:e,name:$("#modify_name").val(),email:$("#modify_email").val(),password:$("#before_password").val(),newpassword:""!=$("#modify_password").val()?$("#modify_password").val():"",cellphone:$("#modify_cellphone").val()}),headers:{"Content-Type":"application/json","cache-control":"no-cache"},success:function(e){console.log(e),alert("修改成功"),location.reload()},error:function(e){alert(e.responseJSON.message)}}):alert("新密碼兩次輸入不一致")}),$("#logoutBtn").click(function(e){e.preventDefault(),logout()})}),document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".fixed-action-btn");M.FloatingActionButton.init(e,{direction:"top",hoverEnabled:!1})});
+$(document).ready(function () {
+  $('.tabs').tabs();
+  $('.modal').modal();
+  $('.collapsible').collapsible();
+  $('.fixed-action-btn').floatingActionButton();
+
+  /* List Select All */
+  function eventBind() {
+    $(document).change(function () {
+      var all = $("#myForm").serializeArray();
+      console.log(all);
+    });
+    $(".checkAll1").click(function () {
+      if ($(".checkAll1").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+        $("input[name='room-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+      } else {
+        $("input[name='room-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+      }
+    })
+    $(".checkAll2").click(function () {
+      if ($(".checkAll2").prop("checked")) { //如果全選按鈕有被選擇的話（被選擇是true）
+        $("input[name='item-checkbox[]']").prop("checked", true); //把所有的核取方框的property都變成勾選
+      } else {
+        $("input[name='item-checkbox[]']").prop("checked", false); //把所有的核取方框的property都取消勾選
+      }
+    })
+  }
+  eventBind();
+
+  /* Modify -> Get JSON */
+  $.ajax({
+    url: `https://暨大猴子.tw/api/user/${getCookie("key")}`,
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      $('#modify_imagePreview').css('background-image', 'url(' + data.photo + ')');
+      $('#modify_name').val(data.name);
+      $('#userName').html(data.name);
+      $('#modify_department').val(data.department);
+      $('#modify_email').val(data.email);
+      var allcard = "";
+      if (data.card != null) {
+        for (var i = 0; i < data.card.length; i++) {
+          allcard += data.card[i].cardID + " ";
+        }
+        $('#modify_cardid').val(allcard);
+      }
+      $('#modify_cellphone').val(data.cellphone);
+      if (data.lineUserID) {
+        $("#notify").html(`
+          <div class="input-field col l10 offset-l1 m10 offset-m1 s10 offset-s1">
+            <input type="text" class="validate" value="${data.lineUserID}" readonly>
+            <label class="active red-text" for="modify_email">Please bind the LineBot instantly!</label>
+          </div>
+        `);
+      }
+    },
+    error: function () {
+      alert("ERROR!!!");
+    }
+  })
+
+  /* Upload Image */
+  var base64photo;
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        base64photo = e.target.result;
+        $('#modify_imagePreview').css('background-image', 'url(' + e.target.result + ')');
+        $('#modify_imagePrevieww').hide();
+        $('#modify_imagePreview').fadeIn(650);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#modify_imageUpload").change(function () {
+    readURL(this);
+  })
+
+  // 修改
+  $("#submitmodify").click(function (e) {
+    e.preventDefault();
+    if ($("#modify_password").val() != "" && $("#modify_password").val() != $("#modify_cpassword").val()) {
+      alert("新密碼兩次輸入不一致");
+      return;
+    }
+    $.ajax({
+      asyn: true,
+      crossDomain: true,
+      type: 'PATCH',
+      url: `https://暨大猴子.tw/api/register/${getCookie("key")}`,
+      data: JSON.stringify({
+        "photo": base64photo,
+        "name": $("#modify_name").val(),
+        "email": $("#modify_email").val(),
+        "password": $("#before_password").val(),
+        "newpassword": $("#modify_password").val() != "" ? $("#modify_password").val() : "",
+        "cellphone": $("#modify_cellphone").val()
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        "cache-control": "no-cache"
+      },
+      success: function (data) {
+        console.log(data);
+        alert("修改成功");
+        location.reload();
+      },
+      error: function (data) {
+        // console.log(data.password);
+        alert(data.responseJSON.message);
+      }
+    });
+  });
+
+  $("#logoutBtn").click(function (e) {
+    e.preventDefault();
+    logout();
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.fixed-action-btn');
+  var instances = M.FloatingActionButton.init(elems, {
+    direction: 'top',
+    hoverEnabled: false
+  });
+});

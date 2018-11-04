@@ -1,27 +1,178 @@
-#signin_btn,.modal label{font-weight:700!important}
-body{font-family:Montserrat,sans-serif;text-align:center;font-size:40px;color:#fff;background:linear-gradient(135deg,#92a8d1 0,#e4a1aa 65%,#ffaebc 100%)}
-.column-full{min-height:100vh!important}
-.column-linefull{line-height:100vh!important}
-footer{background:#fff;font-family:'Alegreya Sans SC',sans-serif;color:#000;font-size:20px;padding:40px}
-.setcenter{display:flex;align-items:center;justify-content:center}
-.colmargin{margin:15px}
-#classroom{background:rgba(255,255,255,.08)}
-#equipment{background:rgba(255,255,255,.12)}
-.card{font-family:Montserrat,sans-serif;font-size:60px!important;text-align:left;padding-left:30px!important;background:0 0;height:400px;width:auto;border-left:1px solid #fff;box-shadow:none}
-.modal,button{font-family:'Julius Sans One',sans-serif!important}
-.modal{background-color:#fff;max-height:90%;width:400px;border-radius:10px;color:#000}
-.modal label{color:#000!important}
-#signin_account,#signin_password{border-bottom:0 solid #000!important;box-shadow:0 1px 0 0 #000!important}
-#signin_btn{border-radius:5px;border:1px solid #000!important;width:200px;height:55px!important;color:#000}
-.btnmargin{margin:45px 0 30px}
-button{background-color:Transparent!important;border:1px solid!important;box-shadow:none!important;width:200px;height:50px!important;font-size:20px!important}
-label{color:#fff!important}
-.input-field input{border-bottom:0 solid #fff!important;box-shadow:0 1px 0 0 #fff!important}
-.avatar-upload{position:relative;margin-top:25px}
-.avatar-edit{position:absolute;left:44px;bottom:13px;z-index:1}
-.avatar-edit input{display:none}
-#label1{display:inline-block;width:28px;height:28px;margin-bottom:0;border-radius:100%;background:#FFF;border:1px solid transparent;box-shadow:0 2px 4px 0 rgba(0,0,0,.12);cursor:pointer;font-weight:400;transition:all .2s ease-in-out}
-#label1:hover{background:#fff;border-color:#d6d6d6}
-#label1:after{content:"\f040";font-family:FontAwesome;color:#92aff3;font-size:15px;position:absolute;left:1px;right:0;bottom:20px;text-align:center;margin:auto}
-.avatar-preview{width:55px;height:55px;position:relative;border-radius:100%;background:#fff;border:4px solid #fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.1)}
-.avatar-preview>div{width:100%;height:100%;border-radius:100%;background-size:cover;background-repeat:no-repeat;background-position:center}
+body {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  background: linear-gradient(135deg, #92a8d1 0%, #e4a1aa 65%, #ffaebc 100%);
+}
+
+.column-full {
+  min-height: 100vh !important;
+}
+
+.column-linefull {
+  line-height: 100vh !important;
+}
+
+footer {
+  background: white;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color: black;
+  font-size: 20px;
+  padding: 40px;
+}
+
+.setcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Page Top */
+.colmargin {
+  margin: 15px;
+}
+
+#classroom {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#equipment {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Sign Up */
+.card {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px !important;
+  text-align: left;
+  padding-left: 30px !important;
+  background: none;
+  height: 400px;
+  width: auto;
+  border-left: 1px solid white;
+  box-shadow: none;
+}
+
+/* Sign In Form */
+.modal {
+  background-color: white;
+  max-height: 90%;
+  width: 400px;
+  font-family: 'Julius Sans One', sans-serif !important;
+  border-radius: 10px;
+  color: black;
+}
+
+.modal label {
+  font-weight: bold !important;
+  color: black !important;
+}
+
+#signin_account,
+#signin_password {
+  border-bottom: 0px solid black !important;
+  box-shadow: 0 1px 0 0 black !important;
+}
+
+#signin_btn {
+  border-radius: 5px;
+  border: 1px solid black !important;
+  ;
+  width: 200px;
+  height: 55px !important;
+  font-weight: bold !important;
+  color: black;
+}
+
+.btnmargin {
+  margin: 45px 0px 30px;
+}
+
+button {
+  background-color: Transparent !important;
+  border: 1px solid !important;
+  box-shadow: none !important;
+  width: 200px;
+  height: 50px !important;
+  font-size: 20px !important;
+  font-family: 'Julius Sans One', sans-serif !important;
+}
+
+/* Sign Up Form*/
+label {
+  color: white !important;
+}
+
+.input-field input {
+  border-bottom: 0px solid white !important;
+  box-shadow: 0 1px 0 0 white !important;
+}
+
+/* Image Upload */
+.avatar-upload {
+  position: relative;
+  margin-top: 25px;
+}
+
+.avatar-edit {
+  position: absolute;
+  left: 44px;
+  bottom: 13px;
+  z-index: 1;
+}
+
+.avatar-edit input {
+  display: none;
+}
+
+#label1 {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all .2s ease-in-out;
+}
+
+#label1:hover {
+  background: white;
+  border-color: #d6d6d6;
+}
+
+#label1:after {
+  content: "\f040";
+  font-family: 'FontAwesome';
+  color: #92aff3;
+  font-size: 15px;
+  position: absolute;
+  left: 1px;
+  right: 0;
+  bottom: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+.avatar-preview {
+  width: 55px;
+  height: 55px;
+  position: relative;
+  border-radius: 100%;
+  background: white;
+  border: 4px solid white;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-preview>div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

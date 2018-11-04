@@ -1,31 +1,163 @@
-body,select{font-family:Rubik,'Josefin Sans',sans-serif}
-#calendar,.w100{width:100%}
-.fc-center,.text-brown{color:#555}
-#modal1,.border-radius-5{border-radius:5px}
-body{margin-bottom:80px}
-.nav-wrapper{font-family:'Josefin Sans',sans-serif}
-.setfont{font-family:"微軟正黑體"}
-.text-center{text-align:center}
-.room-select-bg{background-color:#E9EDF5}
-.addIcon-bg{background-color:#EFA5AF!important}
-#calendar{margin:0 auto}
-.fc-button:focus{background-color:#e6e6e6!important;outline:1px!important}
-#modal1{max-width:500px;max-height:62vh}
-.btn,::-webkit-input-placeholder,input{font-family:Rubik,'Josefin Sans',sans-serif}
-::-webkit-input-placeholder,label{color:#546e7a!important}
-.input-field input,input{border-bottom:0 solid #546e7a!important;box-shadow:0 1px 0 0 #546e7a!important}
-.btn{border:none;color:#fff;background-color:#607d8b!important;box-shadow:none}
-.bg-gradient{background:linear-gradient(270deg,#EE9CA7 23%,#FFDDE1 60%);background:-moz-linear-gradient(270deg,#EE9CA7 23%,#FFDDE1 60%);background:-webkit-linear-gradient(270deg,#EE9CA7 23%,#FFDDE1 60%);background:-o-linear-gradient(270deg,#EE9CA7 23%,#FFDDE1 60%)}
-.bg-gradient-level{background:linear-gradient(0deg,#EE9CA7 23%,#F6BCC4 60%);background:-moz-linear-gradient(0deg,#EE9CA7 23%,#F6BCC4 60%);background:-webkit-linear-gradient(0deg,#EE9CA7 23%,#F6BCC4 60%);background:-o-linear-gradient(0deg,#EE9CA7 23%,#F6BCC4 60%)}
-#myNavBar li a{font-family:'Josefin Sans',sans-serif;color:#fff;font-weight:700;font-size:23px}
-#myNavBar li{margin-bottom:10px}
-.fontcolor li a{font-weight:700;font-size:18px}
-#modal2{max-height:90%;max-width:450px;font-family:'Julius Sans One',sans-serif!important;border-radius:10px}
-#modal3{background-color:#fff;color:#000;font-size:16px}
-li a{font-size:18px!important;font-size:"微軟正黑體"!important}
-tr label{padding-left:10px}
-[type=checkbox]+span:not(.lever){padding-left:10px!important}
-.btn-border{border:.5px solid #d1d1d1}
-.btn-width{width:80px}
-.text-md-right{text-align:right!important;padding:10px}
-.titlebackground{color:#212121}
+body {
+    margin-bottom: 80px;
+    font-family: 'Rubik', 'Josefin Sans', sans-serif;
+}
+
+select {
+    font-family: 'Rubik', 'Josefin Sans', sans-serif;
+}
+
+.nav-wrapper {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.setfont {
+    font-family: "微軟正黑體";
+}
+
+.text-center {
+    text-align: center;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.text-brown {
+    color: #555555;
+}
+
+.room-select-bg {
+    background-color: #E9EDF5;
+}
+
+.border-radius-5 {
+    border-radius: 5px;
+}
+
+.addIcon-bg {
+    background-color: #EFA5AF !important;
+}
+
+/* calendar */
+#calendar {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.fc-button:focus {
+    background-color: #e6e6e6 !important;
+    outline: 1px !important;
+}
+
+.fc-center {
+    color: #555555;
+}
+
+
+/* Form */
+#modal1 {
+    max-width: 500px;
+    border-radius: 5px;
+    max-height: 62vh;
+}
+
+::-webkit-input-placeholder, input, .btn {
+    font-family: 'Rubik', 'Josefin Sans', sans-serif;
+}
+
+::-webkit-input-placeholder, label {
+    color: #546e7a !important;
+}
+
+.input-field input, input {
+    border-bottom: 0px solid #546e7a !important;
+    box-shadow: 0 1px 0 0 #546e7a !important;
+}
+
+.btn {
+    border: none;
+    color: white;
+    background-color: #607d8b !important;
+    box-shadow:none;
+}
+
+/* navbar */
+.bg-gradient {
+    background: linear-gradient(270deg, #EE9CA7 23%, #FFDDE1 60%);
+    background: -moz-linear-gradient(270deg, #EE9CA7 23%, #FFDDE1 60%);
+    background: -webkit-linear-gradient(270deg, #EE9CA7 23%, #FFDDE1 60%);
+    background: -o-linear-gradient(270deg, #EE9CA7 23%, #FFDDE1 60%);
+    /* background: #ffc3c3; */
+}
+
+.bg-gradient-level {
+    background: linear-gradient(0deg, #EE9CA7 23%, #F6BCC4 60%);
+    background: -moz-linear-gradient(0deg, #EE9CA7 23%, #F6BCC4 60%);
+    background: -webkit-linear-gradient(0deg, #EE9CA7 23%, #F6BCC4 60%);
+    background: -o-linear-gradient(0deg, #EE9CA7 23%, #F6BCC4 60%);
+    /* background: #ffc3c3; */
+}
+
+#myNavBar li a {
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    
+}
+
+#myNavBar li {
+    margin-bottom: 10px;
+}
+
+.fontcolor li a {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* warning */
+#modal2 {
+    /* background-color: #ffab91; */
+    max-height: 90%;
+    max-width: 450px;
+    font-family: 'Julius Sans One', sans-serif !important;
+    border-radius: 10px;
+}
+
+/* All List */
+#modal3 {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+  
+li a {
+    font-size: 18px !important;
+    font-size: "微軟正黑體" !important;
+}
+  
+tr label {
+    padding-left: 10px;
+}
+  
+[type="checkbox"]+span:not(.lever) {
+    padding-left: 10px !important;
+}
+  
+.btn-border {
+    border: 0.5px solid #d1d1d1;
+}
+  
+.btn-width {
+    width: 80px;
+}
+  
+.text-md-right {
+    text-align: right !important;
+    padding: 10px;
+}
+  
+.titlebackground {
+    color: #212121;
+}
