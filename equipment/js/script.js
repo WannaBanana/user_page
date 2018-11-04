@@ -68,7 +68,7 @@ $(document).ready(function () {
             url: `https://xn--pss23c41retm.tw/api/item/reservation/${roomTitle}/${roomId}/${itemID}`,
             type: 'GET',
             error: function (xhr) {
-                alert('Ajax request 發生錯誤');
+                alert('查無物品');
             },
             success: function (res) {
                 console.log(res);
@@ -93,7 +93,7 @@ $(document).ready(function () {
             url: `https://xn--pss23c41retm.tw/api/item/reservation/${roomTitle}`,
             type: 'GET',
             error: function (xhr) {
-                alert('Ajax request 發生錯誤');
+                alert('查無教室');
             },
             success: function (res) {
                 // console.log(res);
@@ -113,7 +113,7 @@ $(document).ready(function () {
             url: `https://xn--pss23c41retm.tw/api/item/${roomTitle}/${roomId}`,
             type: 'GET',
             error: function (xhr) {
-                alert('Ajax request 發生錯誤');
+                alert('查無教室');
             },
             success: function (res) {
                 let str = `<option value="" disabled selected>Choose your option</option>`;
@@ -147,10 +147,6 @@ $(document).ready(function () {
             <input type="text" id="start-date" class="datepicker" placeholder="Start-Date">
             <input type="text" id="start-time" class="timepicker" placeholder="Start-Time">
             <input type="text" id="end-time" class="timepicker" placeholder="End-Time">
-            <div class="input-field">
-                <input type="text" id="studentID" name="studentID">
-                <label for="studentID">Student ID</label>
-            </div>
             <div class="input-field">
                 <input type="text" id="title" name="title">
                 <label for="title">Describe</label>
@@ -187,11 +183,10 @@ $(document).ready(function () {
         var sdate = $("#start-date").val();
         var stime = $("#start-time").val();
         var etime = $("#end-time").val();
-        var userID = $("#studentID").val();
         var des = $("#title").val();
         var eventData = {};
         eventData.itemID = itemID;
-        console.log(itemID, sdate, stime, etime, userID, des);
+        console.log(itemID, sdate, stime, etime, des);
         if (!(/(\d{4})-(\d{2})-(\d{2})/.test(sdate)) || sdate == "") {
             alert("起始日期格式錯誤");
             return;
@@ -220,12 +215,7 @@ $(document).ready(function () {
         } else {
             eventData.title = des;
         }
-        if (userID == "") {
-            alert("請輸入學號");
-            return;
-        } else {
-            eventData.studentID = userID;
-        }
+        eventData.studentID = getCookie("key");
         if (confirm("確定要借閱嗎?")) {
             console.log(eventData);
             eventData.repeat = "none";
@@ -237,7 +227,7 @@ $(document).ready(function () {
                 type: 'POST',
                 data: eventData,
                 error: function (xhr) {
-                    alert('Ajax request 發生錯誤');
+                    alert(xhr.responseJSON.message);
                     console.log(xhr);
                 },
                 success: function (res) {
