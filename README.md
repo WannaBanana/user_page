@@ -20,8 +20,6 @@ user_page
        │    └─ account.png
        ├─ index.html
        ├─ js
-       │    ├─ hash.js
-       │    └─ loginpage.js
        ├─ login
        │    ├─ css
        │    ├─ img
