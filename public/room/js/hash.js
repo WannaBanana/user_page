@@ -1,1 +1,138 @@
-var sha256=function e(o){function t(e,o){return e>>>o|e<<32-o}for(var n,r,i=Math.pow,a=i(2,32),g="",c=[],f=8*o.length,h=e.h=e.h||[],s=e.k=e.k||[],l=s.length,u={},k=2;l<64;k++)if(!u[k]){for(n=0;n<313;n+=k)u[n]=k;h[l]=i(k,.5)*a|0,s[l++]=i(k,1/3)*a|0}for(o+="";o.length%64-56;)o+="\0";for(n=0;n<o.length;n++){if((r=o.charCodeAt(n))>>8)return;c[n>>2]|=r<<(3-n)%4*8}for(c[c.length]=f/a|0,c[c.length]=f,r=0;r<c.length;){var v=c.slice(r,r+=16),C=h;for(h=h.slice(0,8),n=0;n<64;n++){var d=v[n-15],m=v[n-2],p=h[0],b=h[4],w=h[7]+(t(b,6)^t(b,11)^t(b,25))+(b&h[5]^~b&h[6])+s[n]+(v[n]=n<16?v[n]:v[n-16]+(t(d,7)^t(d,18)^d>>>3)+v[n-7]+(t(m,17)^t(m,19)^m>>>10)|0);(h=[w+((t(p,2)^t(p,13)^t(p,22))+(p&h[1]^p&h[2]^h[1]&h[2]))|0].concat(h))[4]=h[4]+w|0}for(n=0;n<8;n++)h[n]=h[n]+C[n]|0}for(n=0;n<8;n++)for(r=3;r+1;r--){var T=h[n]>>8*r&255;g+=(T<16?0:"")+T.toString(16)}return g},s="wannabanana";function setCookie(e,o,t){var n=new Date;n.setTime(n.getTime()+60*t*60*1e3);var r="expires="+n.toUTCString();document.cookie=e+"="+o+";"+r+";path=/"}function getCookie(e){for(var o=e+"=",t=decodeURIComponent(document.cookie).split(";"),n=0;n<t.length;n++){for(var r=t[n];" "==r.charAt(0);)r=r.substring(1);if(0==r.indexOf(o))return r.substring(o.length,r.length)}return""}var checkLogin=()=>sha256(getCookie("key")+s)===getCookie("value"),logout=()=>{setCookie("key","",-1),setCookie("value","",-1),setCookie("space","",-1),setCookie("admin","",-1),location.reload()};
+var sha256 = function sha256(ascii) {
+    function rightRotate(value, amount) {
+        return (value >>> amount) | (value << (32 - amount));
+    };
+
+    var mathPow = Math.pow;
+    var maxWord = mathPow(2, 32);
+    var lengthProperty = 'length'
+    var i, j; // Used as a counter across the whole file
+    var result = ''
+
+    var words = [];
+    var asciiBitLength = ascii[lengthProperty] * 8;
+
+    //* caching results is optional - remove/add slash from front of this line to toggle
+    // Initial hash value: first 32 bits of the fractional parts of the square roots of the first 8 primes
+    // (we actually calculate the first 64, but extra values are just ignored)
+    var hash = sha256.h = sha256.h || [];
+    // Round constants: first 32 bits of the fractional parts of the cube roots of the first 64 primes
+    var k = sha256.k = sha256.k || [];
+    var primeCounter = k[lengthProperty];
+    /*/
+    var hash = [], k = [];
+    var primeCounter = 0;
+    //*/
+
+    var isComposite = {};
+    for (var candidate = 2; primeCounter < 64; candidate++) {
+        if (!isComposite[candidate]) {
+            for (i = 0; i < 313; i += candidate) {
+                isComposite[i] = candidate;
+            }
+            hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+            k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+        }
+    }
+
+    ascii += '\x80' // Append Ƈ' bit (plus zero padding)
+    while (ascii[lengthProperty] % 64 - 56) ascii += '\x00' // More zero padding
+    for (i = 0; i < ascii[lengthProperty]; i++) {
+        j = ascii.charCodeAt(i);
+        if (j >> 8) return; // ASCII check: only accept characters in range 0-255
+        words[i >> 2] |= j << ((3 - i) % 4) * 8;
+    }
+    words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+    words[words[lengthProperty]] = (asciiBitLength)
+
+    // process each chunk
+    for (j = 0; j < words[lengthProperty];) {
+        var w = words.slice(j, j += 16); // The message is expanded into 64 words as part of the iteration
+        var oldHash = hash;
+        // This is now the undefinedworking hash", often labelled as variables a...g
+        // (we have to truncate as well, otherwise extra entries at the end accumulate
+        hash = hash.slice(0, 8);
+
+        for (i = 0; i < 64; i++) {
+            var i2 = i + j;
+            // Expand the message into 64 words
+            // Used below if 
+            var w15 = w[i - 15],
+                w2 = w[i - 2];
+
+            // Iterate
+            var a = hash[0],
+                e = hash[4];
+            var temp1 = hash[7] +
+                (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) // S1
+                +
+                ((e & hash[5]) ^ ((~e) & hash[6])) // ch
+                +
+                k[i]
+                // Expand the message schedule if needed
+                +
+                (w[i] = (i < 16) ? w[i] : (
+                    w[i - 16] +
+                    (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3)) // s0
+                    +
+                    w[i - 7] +
+                    (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10)) // s1
+                ) | 0);
+            // This is only used once, so *could* be moved below, but it only saves 4 bytes and makes things unreadble
+            var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) // S0
+                +
+                ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2])); // maj
+
+            hash = [(temp1 + temp2) | 0].concat(hash); // We don't bother trimming off the extra ones, they're harmless as long as we're truncating when we do the slice()
+            hash[4] = (hash[4] + temp1) | 0;
+        }
+
+        for (i = 0; i < 8; i++) {
+            hash[i] = (hash[i] + oldHash[i]) | 0;
+        }
+    }
+
+    for (i = 0; i < 8; i++) {
+        for (j = 3; j + 1; j--) {
+            var b = (hash[i] >> (j * 8)) & 255;
+            result += ((b < 16) ? 0 : '') + b.toString(16);
+        }
+    }
+    return result;
+};
+
+var s = "wannabanana";
+
+function setCookie(cname, cvalue, exhours) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exhours * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+var checkLogin = () => sha256(getCookie("key") + s) === getCookie("value");
+
+
+var logout = () => {
+    setCookie("key", "", -1);
+    setCookie("value", "", -1);
+    setCookie("space", "", -1);
+    setCookie("admin", "", -1);
+    location.reload();
+}

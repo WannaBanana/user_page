@@ -21,7 +21,7 @@ gulp.task('server', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src((config.dir.dest + '/**/*'), {
+    return gulp.src((config.dir.dest + '/*'), {
             read: false
         })
         .pipe(clean())
