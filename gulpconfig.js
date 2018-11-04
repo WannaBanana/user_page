@@ -10,7 +10,7 @@ var dir = {
             src: dir.src + '/**/*.js'
         },
         img: {
-            src: dir.src + '/**/*.img'
+            src: dir.src + '/**/*'
         },
         html: {
             src: dir.src + '/**/*.html'
