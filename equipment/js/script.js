@@ -183,6 +183,7 @@ $(document).ready(function () {
         var sdate = $("#start-date").val();
         var stime = $("#start-time").val();
         var etime = $("#end-time").val();
+        // var userID = $("#studentID").val();
         var des = $("#title").val();
         var eventData = {};
         eventData.itemID = itemID;
@@ -215,6 +216,12 @@ $(document).ready(function () {
         } else {
             eventData.title = des;
         }
+        // if (userID == "") {
+        //     alert("請輸入學號");
+        //     return;
+        // } else {
+        //     eventData.studentID = userID;
+        // }
         eventData.studentID = getCookie("key");
         if (confirm("確定要借閱嗎?")) {
             console.log(eventData);

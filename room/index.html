@@ -1,3 +1,269 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Document</title><script src="./js/hash.js"></script><script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/hash.js"></script>
+    <script>
         checkLogin() ? "" : window.location.href = '../login/index.html';
-    </script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"><link href="./css/fullcalendar.css" rel="stylesheet"><link href="./css/fullcalendar.print.css" rel="stylesheet" media="print"><link href="./css/space.css" rel="stylesheet"><link href="./css/style.css" rel="stylesheet"><script src="./js/moment.js"></script><script src="./js/jquery.js"></script><script src="./js/fullcalendar.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Rubik:300|Poiret+One|Josefin+Slab|Josefin+Sans:300|Julius+Sans+One" rel="stylesheet"></head><body><nav><div class="nav-wrapper px-md-2 bg-gradient-level"><a href="#!" class="brand-logo"><img class="d-none-sm" src="./img/minions.png" width="30px"> WannaBanana</a> <a href="#" data-target="myNavBar" class="sidenav-trigger"><i class="material-icons">menu</i></a><ul class="right hide-on-med-and-down fontcolor"><li><a href="../index.html"><i class="material-icons">person</i></a></li><li><a class="modal-trigger" data-target="modal3">Record</a></li><li><a class="modal-trigger" data-target="modal2">Alerts</a></li><li><a href="#" onclick="logout()">Logout</a></li></ul></div></nav><ul class="sidenav bg-gradient" id="myNavBar"><li style="background-color: rgb(226, 170, 178);align-items: center"><a href="../index.html"><i class="material-icons white-text">person</i></a></li><li class="text-center"><a class="modal-trigger" data-target="modal3">Record</a></li><li class="text-center"><a class="modal-trigger" data-target="modal2">Alerts</a></li><li class="text-center"><a href="#" onclick="logout()">Logout</a></li></ul><div id="modal2" class="modal"><div class="modal-content"><ul class="collapsible"><li><div class="collapsible-header valign-wrapper"><i class="material-icons">warning</i>Warning</div><div class="collapsible-body"><span>When something was stolen QQ</span></div></li><li><div class="collapsible-header valign-wrapper"><i class="material-icons">message</i>Message</div><div class="collapsible-body"><span>Administrator's message.</span></div></li><li><div class="collapsible-header valign-wrapper"><i class="material-icons">notifications</i>Notifications</div><div class="collapsible-body"><span>Audit notification.</span></div></li></ul></div></div><div id="modal3" class="modal"><div class="modal-content"><ul class="tabs tabs-fixed-width tab-demo z-depth-1"><li class="tab"><a href="#classroomrecord">教室預約記錄</a></li><li class="tab"><a href="#itemrecord">物品借閱記錄</a></li></ul><div id="classroomrecord" class="col s12"><div class="row"><div class="col-s12 text-md-right"><a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a></div><div class="col s12"><table><thead class="btn-border"><tr class="titlebackground"><th><label><input type="checkbox" class="checkAll1"> <span></span></label></th><th>教室</th><th>日期</th><th>起始時間</th><th>結束時間</th><th>用途</th><th>重複</th></tr></thead><form action="#" id="myForm"><tbody id="table-content"><tr><td><label><input type="checkbox" name="room-checkbox[]" value="456"> <span></span></label></td><td>管204</td><td>2018/10/09</td><td>10:00</td><td>16:00</td><td>校內用途</td><td>單周</td></tr><tr><td><label><input type="checkbox" name="room-checkbox[]" value="456"> <span></span></label></td><td>管204</td><td>2018/10/09</td><td>10:00</td><td>16:00</td><td>校內用途</td><td>單周</td></tr></tbody></form></table></div></div></div><div id="itemrecord" class="col s12"><div class="row"><div class="col-s12 text-md-right"><a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a></div><div class="col s12"><table><thead class="btn-border"><tr class="titlebackground"><th><label><input type="checkbox" class="checkAll2"> <span></span></label></th><th>物品</th><th>日期</th><th>起始時間</th><th>結束時間</th><th>用途</th><th>重複</th></tr></thead><form action="#" id="myForm"><tbody id="table-content"><tr><td><label><input type="checkbox" name="item-checkbox[]" value="456"> <span></span></label></td><td>歐陽俊傑</td><td>2018/10/09</td><td>10:00</td><td>16:00</td><td>校內用途</td><td>單周</td></tr><tr><td><label><input type="checkbox" name="item-checkbox[]" value="456"> <span></span></label></td><td>量子電腦</td><td>2018/10/09</td><td>10:00</td><td>16:00</td><td>校內用途</td><td>單周</td></tr></tbody></form></table></div></div></div></div></div><div class="wrapper px-md-1 py-2"><div class="row"><div class="col s12 m2"><div class="row"><div class="col s12" style="margin-bottom: 8px"><h4 id="header-text" class="grey-text text-darken-2 text-center setfont">教室借閱</h4><div class="divider"></div></div></div><ul class="collapsible"><li class="active"><div class="collapsible-header room-select-bg"><div class="text-center text-brown w100" style="font-size: 20px">College</div></div><div class="collapsible-body text-center py-1 setfont"><div class="mb-1"><a class="text-brown" href="#m" style="font-size: 20px">管理學院</a></div><div class="mb-1"><a class="text-brown" href="#h" style="font-size: 20px">人文學院</a></div><div class="mb-1"><a class="text-brown" href="#t" style="font-size: 20px">科技學院</a></div><div class="mb-1"><a class="text-brown" href="#e" style="font-size: 20px">教育學院</a></div></div></li></ul><ul class="collapsible"><li class="active"><div class="collapsible-header room-select-bg"><div class="text-center text-brown w100" style="font-size: 20px">Classroom</div></div><div class="collapsible-body text-center py-1"><select id="class-room" class="browser-default room-select-bg text-brown border-radius-5"><option disabled selected>College First</option></select></div></li></ul></div><div class="col s12 m10"><div class="col s12"><div id="calendar"></div><div id="infoModal" class="modal"><div class="modal-content setfont"><h4>借用資訊</h4><p></p></div><div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a></div></div></div></div></div></div><div class="fixed-action-btn"><a id="form-btn" class="btn-floating btn-large addIcon-bg waves-effect waves-light" href="#"><i class="large material-icons">add</i></a></div><div id="modal1" class="modal modal-fixed-footer"><div id="reserve-form" class="modal-content"></div><div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a></div></div><script src="./js/calendarInit.js"></script><script src="./js/script.js"></script></body></html>
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href='./css/fullcalendar.css' rel='stylesheet' />
+    <link href='./css/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href='./css/space.css' rel='stylesheet' />
+    <link href='./css/style.css' rel='stylesheet' />
+    <script src='./js/moment.js'></script>
+    <script src='./js/jquery.js'></script>
+    <script src='./js/fullcalendar.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300|Poiret+One|Josefin+Slab|Josefin+Sans:300|Julius+Sans+One"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper px-md-2 bg-gradient-level">
+            <a href="#!" class="brand-logo">
+                <img class="d-none-sm" src="./img/minions.png" width="30px">
+                WannaBanana
+            </a>
+            <a href="#" data-target="myNavBar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down fontcolor">
+                <li><a href="../index.html"><i class="material-icons">person</i></a></li>
+                <li><a class="modal-trigger" data-target="modal3">Record</a></li>
+                <li><a class="modal-trigger" data-target="modal2">Alerts</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav bg-gradient" id="myNavBar">
+        <li style="background-color: rgb(226, 170, 178);align-items: center"><a href="../index.html"><i class="material-icons white-text">person</i></a></li>
+        <li class="text-center"><a class="modal-trigger" data-target="modal3">Record</a></li>
+        <li class="text-center"><a class="modal-trigger" data-target="modal2">Alerts</a></li>
+        <li class="text-center"><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+
+    <!-- warning -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header valign-wrapper"><i class="material-icons">warning</i>Warning</div>
+                    <div class="collapsible-body"><span>When something was stolen QQ</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header valign-wrapper"><i class="material-icons">message</i>Message</div>
+                    <div class="collapsible-body"><span>Administrator's message.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header valign-wrapper"><i class="material-icons">notifications</i>Notifications</div>
+                    <div class="collapsible-body"><span>Audit notification.</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- all list -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+                <li class="tab"><a href="#classroomrecord">教室預約記錄</a></li>
+                <li class="tab"><a href="#itemrecord">物品借閱記錄</a></li>
+            </ul>
+            <div id="classroomrecord" class="col s12">
+                <div class="row">
+                    <div class="col-s12 text-md-right">
+                        <a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a>
+                    </div>
+                    <div class="col s12">
+                        <table>
+                            <thead class="btn-border">
+                                <tr class="titlebackground">
+                                    <th>
+                                        <label>
+                                            <input type="checkbox" class="checkAll1" />
+                                            <span>　</span>
+                                        </label>
+                                    </th>
+                                    <th>教室</th>
+                                    <th>日期</th>
+                                    <th>起始時間</th>
+                                    <th>結束時間</th>
+                                    <th>用途</th>
+                                    <th>重複</th>
+                                </tr>
+                            </thead>
+                            <form action="#" id="myForm">
+                                <tbody id="table-content">
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="room-checkbox[]" value="456" />
+                                                <span>　</span>
+                                            </label>
+                                        </td>
+                                        <td>管204</td>
+                                        <td>2018/10/09</td>
+                                        <td>10:00</td>
+                                        <td>16:00</td>
+                                        <td>校內用途</td>
+                                        <td>單周</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="room-checkbox[]" value="456" />
+                                                <span>　</span>
+                                            </label>
+                                        </td>
+                                        <td>管204</td>
+                                        <td>2018/10/09</td>
+                                        <td>10:00</td>
+                                        <td>16:00</td>
+                                        <td>校內用途</td>
+                                        <td>單周</td>
+                                    </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="itemrecord" class="col s12">
+                <div class="row">
+                    <div class="col-s12 text-md-right">
+                        <a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a>
+                    </div>
+                    <div class="col s12">
+                        <table>
+                            <thead class="btn-border">
+                                <tr class="titlebackground">
+                                    <th>
+                                        <label>
+                                            <input type="checkbox" class="checkAll2" />
+                                            <span>　</span>
+                                        </label>
+                                    </th>
+                                    <th>物品</th>
+                                    <th>日期</th>
+                                    <th>起始時間</th>
+                                    <th>結束時間</th>
+                                    <th>用途</th>
+                                    <th>重複</th>
+                                </tr>
+                            </thead>
+                            <form action="#" id="myForm">
+                                <tbody id="table-content">
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="item-checkbox[]" value="456" />
+                                                <span>　</span>
+                                            </label>
+                                        </td>
+                                        <td>歐陽俊傑</td>
+                                        <td>2018/10/09</td>
+                                        <td>10:00</td>
+                                        <td>16:00</td>
+                                        <td>校內用途</td>
+                                        <td>單周</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="item-checkbox[]" value="456" />
+                                                <span>　</span>
+                                            </label>
+                                        </td>
+                                        <td>量子電腦</td>
+                                        <td>2018/10/09</td>
+                                        <td>10:00</td>
+                                        <td>16:00</td>
+                                        <td>校內用途</td>
+                                        <td>單周</td>
+                                    </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper px-md-1 py-2">
+        <div class="row">
+            <div class="col s12 m2">
+                <div class="row">
+                    <div class="col s12" style="margin-bottom: 8px">
+                        <h4 id="header-text" class="grey-text text-darken-2 text-center setfont">教室借閱</h4>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+                <ul class="collapsible">
+                    <li class="active">
+                        <div class="collapsible-header room-select-bg">
+                            <div class="text-center text-brown w100" style="font-size: 20px">College</div>
+                        </div>
+                        <div class="collapsible-body text-center py-1 setfont">
+                            <div class="mb-1"><a class="text-brown" href="#m" style="font-size: 20px">管理學院</a></div>
+                            <div class="mb-1"><a class="text-brown" href="#h" style="font-size: 20px">人文學院</a></div>
+                            <div class="mb-1"><a class="text-brown" href="#t" style="font-size: 20px">科技學院</a></div>
+                            <div class="mb-1"><a class="text-brown" href="#e" style="font-size: 20px">教育學院</a></div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="collapsible">
+                    <li class="active">
+                        <div class="collapsible-header room-select-bg">
+                            <div class="text-center text-brown w100" style="font-size: 20px">Classroom</div>
+                        </div>
+                        <div class="collapsible-body text-center py-1">
+                            <select id="class-room" class="browser-default room-select-bg text-brown border-radius-5">
+                                <option value="" disabled selected>College First</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12 m10">
+                <div class="col s12">
+                    <div id='calendar'></div>
+                    <!-- Modal Structure -->
+                    <div id="infoModal" class="modal">
+                        <div class="modal-content setfont">
+                            <h4>借用資訊</h4>
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-action-btn">
+        <a id="form-btn" class="btn-floating btn-large addIcon-bg waves-effect waves-light" href="#">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div id="reserve-form" class="modal-content">
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        </div>
+    </div>
+
+    <script src="./js/calendarInit.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
