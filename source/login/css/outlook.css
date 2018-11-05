@@ -57,7 +57,7 @@ footer {
 /* Sign In Form */
 .modal {
   background-color: white;
-  max-height: 90%;
+  /* max-height: 90%; */
   max-width: 400px;
   font-family: 'Julius Sans One', sans-serif !important;
   border-radius: 10px;
@@ -71,8 +71,8 @@ footer {
 
 #signin_account,
 #signin_password {
-  border-bottom: 0px solid black !important;
-  box-shadow: 0 1px 0 0 black !important;
+  border-bottom: 1px solid black !important;
+  box-shadow: 0 0.5px 0 0 black !important;
 }
 
 #signin_btn {
