@@ -175,3 +175,12 @@ label {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .cardtext {
+    font-size: 50px !important;
+  }
+  .cardtext2 {
+    font-size: 35px !important;
+  }
+}
