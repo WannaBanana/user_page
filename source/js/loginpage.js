@@ -54,6 +54,9 @@ $(document).ready(function () {
           </div>
         `);
       }
+      $("#account").html(`
+        <img src="${data.photo}" style="width:110px; border-radius:50%">
+      `);
     },
     error: function () {
       alert("ERROR!!!");
