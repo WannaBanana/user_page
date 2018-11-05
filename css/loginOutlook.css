@@ -67,8 +67,8 @@ footer {
 }
 
 .input-field input {
-  border-bottom: 0px solid #546e7a !important;
-  box-shadow: 0 1px 0 0 #546e7a !important;
+  border-bottom: 1px solid #546e7a !important;
+  box-shadow: 0 0px 0 0 #546e7a !important;
   color: #546e7a !important;
   font-size: 18px !important;
 }
@@ -238,4 +238,40 @@ td, th {
 
 table {
   padding: 10px 0px 0px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    max-width: 300px !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #equipment {
+    font-size: 35px !important;
+  }
+  #classroom {
+    font-size: 35px !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  #equipment {
+    font-size: 30px !important;
+  }
+  #classroom {
+    font-size: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .card {
+    max-width: 300px !important;
+  }
+  #equipment {
+    font-size: 40px !important;
+  }
+  #classroom {
+    font-size: 40px !important;
+  }
 }

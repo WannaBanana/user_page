@@ -71,8 +71,8 @@ select {
 }
 
 .input-field input, input {
-    border-bottom: 0px solid #546e7a !important;
-    box-shadow: 0 1px 0 0 #546e7a !important;
+    border-bottom: 1px solid #546e7a !important;
+    box-shadow: 0 0px 0 0 #546e7a !important;
 }
 
 .btn {
