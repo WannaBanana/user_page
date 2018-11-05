@@ -308,7 +308,7 @@ $(document).ready(function () {
                             <td id="${last_key}StartTime">${start}</td>
                             <td id="${last_key}EndTime">${end}</td>
                             <td id="${last_key}Title">${last_element.title}</td>
-                            <td id="${last_key}Repeat">${last_element.repeat_type}</td>
+                            <td id="${last_key}Repeat">${last_element.repeat_type ? last_element.repeat_type : ""}</td>
                             <td id="${last_key}State">${last_element.state}</td>
                             </tr>`;
                         }
