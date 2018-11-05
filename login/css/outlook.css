@@ -57,8 +57,8 @@ footer {
 /* Sign In Form */
 .modal {
   background-color: white;
-  /* max-height: 90%; */
-  max-width: 400px;
+  min-height: 50%;
+  max-width: 380px;
   font-family: 'Julius Sans One', sans-serif !important;
   border-radius: 10px;
   color: black;
@@ -72,7 +72,6 @@ footer {
 #signin_account,
 #signin_password {
   border-bottom: 1px solid black !important;
-  box-shadow: 0 0.5px 0 0 black !important;
 }
 
 #signin_btn {
@@ -85,7 +84,7 @@ footer {
 }
 
 .btnmargin {
-  margin: 45px 0px 30px;
+  margin: 0px 0px 30px;
 }
 
 button {
@@ -104,8 +103,8 @@ label {
 }
 
 .input-field input {
-  border-bottom: 0px solid white !important;
-  box-shadow: 0 1px 0 0 white !important;
+  border-bottom: 1px solid white !important;
+  box-shadow: 0 0px 0 0 white !important;
 }
 
 /* Image Upload */
