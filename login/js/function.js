@@ -40,6 +40,8 @@ $(document).ready(function () {
       dataType: 'json',
       success: function (data) {
         console.log(data);
+        alert("註冊成功，請聯絡管理員開通帳號");
+        location.reload();
       },
       error: function (data) {
         alert(data.responseJSON.message);
@@ -64,7 +66,7 @@ $(document).ready(function () {
             setCookie("value", sha256($("#signin_account").val() + s), 6);
             setCookie("admin", result.admin, 6);
             setCookie("space", result.space ?JSON.stringify(result.space):"", 6);
-            window.location.href = './index.html';
+            window.location.href = '../index.html';
             console.log("驗證完成");
           }
         },
