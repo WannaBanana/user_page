@@ -79,4 +79,6 @@ gulp.task('build', ['minify-style', 'minify-script', 'minify-html', 'minify-img'
         }));
 });
 
-gulp.task('deploy', ['ghpages']);
+gulp.task('deploy', ['clean'], function () {
+    gulp.start(['ghpages']);
+});
