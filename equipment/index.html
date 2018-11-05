@@ -27,7 +27,7 @@
 <body>
     <nav>
         <div class="nav-wrapper px-md-2 bg-gradient-level">
-            <a href="#!" class="brand-logo">
+            <a href="https://wannabanana.github.io/" class="brand-logo">
                 <img class="d-none-sm" src="./img/minions.png" width="30px">
                 WannaBanana
             </a>
@@ -75,123 +75,42 @@
                 <li class="tab"><a href="#classroomrecord">教室預約記錄</a></li>
                 <li class="tab"><a href="#itemrecord">物品借閱記錄</a></li>
             </ul>
-            <div id="classroomrecord" class="col s12">
-                <div class="row">
-                    <div class="col-s12 text-md-right">
-                        <a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a>
-                    </div>
-                    <div class="col s12">
-                        <table>
-                            <thead class="btn-border">
-                                <tr class="titlebackground">
-                                    <th>
-                                        <label>
-                                            <input type="checkbox" class="checkAll1" />
-                                            <span>　</span>
-                                        </label>
-                                    </th>
-                                    <th>教室</th>
-                                    <th>日期</th>
-                                    <th>起始時間</th>
-                                    <th>結束時間</th>
-                                    <th>用途</th>
-                                    <th>重複</th>
-                                </tr>
-                            </thead>
-                            <form action="#" id="myForm">
-                                <tbody id="table-content">
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" name="room-checkbox[]" value="456" />
-                                                <span>　</span>
-                                            </label>
-                                        </td>
-                                        <td>管204</td>
-                                        <td>2018/10/09</td>
-                                        <td>10:00</td>
-                                        <td>16:00</td>
-                                        <td>校內用途</td>
-                                        <td>單周</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" name="room-checkbox[]" value="456" />
-                                                <span>　</span>
-                                            </label>
-                                        </td>
-                                        <td>管204</td>
-                                        <td>2018/10/09</td>
-                                        <td>10:00</td>
-                                        <td>16:00</td>
-                                        <td>校內用途</td>
-                                        <td>單周</td>
-                                    </tr>
-                                </tbody>
-                            </form>
-                        </table>
-                    </div>
-                </div>
+            <br>
+            <div class="col s12" id="classroomrecord">
+                <table class="striped highlight responsive-table">
+                    <form action="#">
+                        <thead class="btn-border form-head-shadow">
+                            <tr>
+                                <th>學院</th>
+                                <th>教室</th>
+                                <th>日期</th>
+                                <th>起始時間</th>
+                                <th>結束時間</th>
+                                <th>用途</th>
+                                <th>審核狀態</th>
+                            </tr>
+                        </thead>
+                        <tbody id="classroom-content"></tbody>
+                    </form>
+                </table>
             </div>
-            <div id="itemrecord" class="col s12">
-                <div class="row">
-                    <div class="col-s12 text-md-right">
-                        <a id="delBtn" class="waves-effect btn grey white-text btn-width">刪除</a>
-                    </div>
-                    <div class="col s12">
-                        <table>
-                            <thead class="btn-border">
-                                <tr class="titlebackground">
-                                    <th>
-                                        <label>
-                                            <input type="checkbox" class="checkAll2" />
-                                            <span>　</span>
-                                        </label>
-                                    </th>
-                                    <th>物品</th>
-                                    <th>日期</th>
-                                    <th>起始時間</th>
-                                    <th>結束時間</th>
-                                    <th>用途</th>
-                                    <th>重複</th>
-                                </tr>
-                            </thead>
-                            <form action="#" id="myForm">
-                                <tbody id="table-content">
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" name="item-checkbox[]" value="456" />
-                                                <span>　</span>
-                                            </label>
-                                        </td>
-                                        <td>歐陽俊傑</td>
-                                        <td>2018/10/09</td>
-                                        <td>10:00</td>
-                                        <td>16:00</td>
-                                        <td>校內用途</td>
-                                        <td>單周</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" name="item-checkbox[]" value="456" />
-                                                <span>　</span>
-                                            </label>
-                                        </td>
-                                        <td>量子電腦</td>
-                                        <td>2018/10/09</td>
-                                        <td>10:00</td>
-                                        <td>16:00</td>
-                                        <td>校內用途</td>
-                                        <td>單周</td>
-                                    </tr>
-                                </tbody>
-                            </form>
-                        </table>
-                    </div>
-                </div>
+            <div class="col s12" id="itemrecord">
+                <table class="striped highlight responsive-table">
+                    <form action="#">
+                        <thead class="btn-border form-head-shadow">
+                            <tr>
+                                <th>編號</th>
+                                <th>日期</th>
+                                <th>起始時間</th>
+                                <th>結束時間</th>
+                                <th>用途</th>
+                                <th>重複</th>
+                                <th>審核狀態</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemrecord-content"></tbody>
+                    </form>
+                </table>
             </div>
         </div>
     </div>

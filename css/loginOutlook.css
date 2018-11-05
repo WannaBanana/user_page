@@ -45,7 +45,7 @@ footer {
 }
 
 #classroom:hover, #equipment:hover {
-  opacity: 0.7;
+  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -230,4 +230,12 @@ tr label {
 
 .titlebackground {
   color: #212121;
+}
+
+td, th {
+  text-align: center;
+}
+
+table {
+  padding: 10px 0px 0px 0px;
 }
