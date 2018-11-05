@@ -59,7 +59,6 @@ footer {
   background-color: rgb(248, 198, 188);
   max-height: 80%;
   max-width: 550px;
-  ;
   font-family: 'Julius Sans One', sans-serif !important;
   border-radius: 10px;
   color: #546e7a;
@@ -240,12 +239,6 @@ table {
   padding: 10px 0px 0px 0px;
 }
 
-@media only screen and (max-width: 600px) {
-  .card {
-    max-width: 300px !important;
-  }
-}
-
 @media only screen and (max-width: 1200px) {
   #equipment {
     font-size: 35px !important;
@@ -265,9 +258,6 @@ table {
 }
 
 @media only screen and (max-width: 990px) {
-  .card {
-    max-width: 300px !important;
-  }
   #equipment {
     font-size: 40px !important;
   }
