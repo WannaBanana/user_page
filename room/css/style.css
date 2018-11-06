@@ -57,9 +57,9 @@ select {
 
 /* Form */
 #modal1 {
-    max-width: 500px;
+    max-width: 450px;
     border-radius: 5px;
-    max-height: 70vh;
+    max-height: 63vh;
 }
 
 ::-webkit-input-placeholder, input, .btn {
@@ -128,6 +128,7 @@ select {
     background-color: white;
     color: black;
     font-size: 16px;
+    font-size: "微軟正黑體" !important;
 }
   
 li a {
