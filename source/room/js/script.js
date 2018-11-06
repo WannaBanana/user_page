@@ -67,6 +67,10 @@ $(document).ready(function () {
                                     } else {
                                         res[key][inner_key].color = "red";
                                     }
+                                } else {
+                                    if (res[key][inner_key].name == getCookie("key")) {
+                                        res[key][inner_key].color = "#5DB0B7";
+                                    }
                                 }
                                 eventData.push(res[key][inner_key]);
                             }
@@ -221,6 +225,11 @@ $(document).ready(function () {
                 },
                 success: function (res) {
                     console.log(res);
+                    if (getCookie("admin") == "true") {
+                        eventData.color = "#5DB0B7";
+                    } else {
+                        eventData.color = "orange";
+                    }
                     $('#calendar').fullCalendar('addEventSource', [eventData]);
                 }
             });

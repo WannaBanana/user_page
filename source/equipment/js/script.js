@@ -77,6 +77,17 @@ $(document).ready(function () {
                     if (res.hasOwnProperty(key)) {
                         for (const inner_key in res[key]) {
                             if (res[key].hasOwnProperty(inner_key)) {
+                                if (res[key][inner_key].state == "未核准") {
+                                    if (res[key][inner_key].studentID == getCookie("key")) {
+                                        res[key][inner_key].color = "orange";
+                                    } else {
+                                        res[key][inner_key].color = "red";
+                                    }
+                                } else {
+                                    if (res[key][inner_key].studentID == getCookie("key")) {
+                                        res[key][inner_key].color = "#5DB0B7";
+                                    }
+                                }
                                 eventData.push(res[key][inner_key]);
                             }
                         }
@@ -239,6 +250,11 @@ $(document).ready(function () {
                 },
                 success: function (res) {
                     console.log(res);
+                    if (getCookie("admin") == "true") {
+                        eventData.color = "#5DB0B7";
+                    } else {
+                        eventData.color = "orange";
+                    }
                     $('#calendar').fullCalendar('addEventSource', [eventData]);
                 }
             });
