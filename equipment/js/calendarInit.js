@@ -40,6 +40,24 @@ $(document).ready(function () {
             // $('#calendar').fullCalendar('addEventSource', [{start: "2018-09-10", title: "資管系"}]);
         },
         eventClick: function (event, element) {
+            console.log(event);
+            $("#infoModal p").html(`
+            <div class="row">
+                <div class="col s12 m12">
+                    借用人: ${event.studentID}
+                </div>
+                <div class="col s12 m12">
+                    用途: ${event.title}
+                </div>
+                <div class="col s12 m12">
+                    開始時間: ${event.start._i.replace("T", " ").replace(":00.000Z", "")}
+                </div>
+                <div class="col s12 m12">
+                    結束時間: ${event.end._i.replace("T", " ").replace(":00.000Z", "")}
+                </div>
+            </div>
+            `);
+            M.Modal.init(document.querySelector('#infoModal')).open();
 
             // console.log(event, element);
 
@@ -135,20 +153,20 @@ $(document).ready(function () {
 
         // 透過函數取得
         // events: function (start, end, timezone, callback) {
-            // $.ajax({
-            //     ...
-            //     success: function (doc) {
-            //         var events = [];
-            //         $(doc).find('event').each(function () {
-            //             events.push({
-            //                 title: $(this).attr('title'),
-            //                 start: $(this).attr('start') // will be parsed
-            //             });
-            //         });
-            //         callback(events);
-            //     }
-            // });
-            // callback([{start: "2018-09-09", title: "財金系"}]);
+        // $.ajax({
+        //     ...
+        //     success: function (doc) {
+        //         var events = [];
+        //         $(doc).find('event').each(function () {
+        //             events.push({
+        //                 title: $(this).attr('title'),
+        //                 start: $(this).attr('start') // will be parsed
+        //             });
+        //         });
+        //         callback(events);
+        //     }
+        // });
+        // callback([{start: "2018-09-09", title: "財金系"}]);
         // }
     });
 

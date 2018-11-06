@@ -167,3 +167,21 @@ td, th {
 table {
     padding: 10px 0px 0px 0px;
 }
+
+#infoModal {
+    max-width: 340px !important;
+    border-radius: 5px;
+    font-family: "微軟正黑體";
+}
+
+#infoModal p {
+    font-size: 20px !important;
+    line-height: 40px !important;
+}
+
+@media only screen and (max-width: 380px) {
+    #infoModal p {
+        font-size: 18px !important;
+        line-height: 40px !important;
+    }
+}
