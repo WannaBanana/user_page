@@ -257,6 +257,8 @@ $(document).ready(function () {
                         eventData.color = "orange";
                     }
                     $('#calendar').fullCalendar('addEventSource', [eventData]);
+                    getData();
+                    getClassData();
                 }
             });
             var instance = M.Modal.getInstance(document.getElementById("modal1"));
