@@ -215,8 +215,9 @@ $(document).ready(function () {
             eventData.repeat_end = "none";
             eventData.type = "inside";
             eventData.conflict = false;
+            var sta = getCookie("admin") == "true"?"reservation/admin":"reservation";
             $.ajax({
-                url: `https://xn--pss23c41retm.tw/api/reservation/${roomTitle}/${roomId}`,
+                url: `https://xn--pss23c41retm.tw/api/${sta}/${roomTitle}/${roomId}`,
                 type: 'POST',
                 data: eventData,
                 error: function (xhr) {
