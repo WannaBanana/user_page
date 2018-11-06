@@ -120,10 +120,6 @@ $(document).ready(function () {
             <input type="text" id="start-time" class="timepicker" placeholder="Start-Time">
             <input type="text" id="end-time" class="timepicker" placeholder="End-Time">
             <div class="input-field">
-                <input type="text" id="userName">
-                <label for="userName">Student ID</label>
-            </div>
-            <div class="input-field">
                 <input type="text" id="des">
                 <label for="des">Describe</label>
             </div>
@@ -164,10 +160,10 @@ $(document).ready(function () {
         var des = $("#des").val();
         var stime = $("#start-time").val();
         var etime = $("#end-time").val();
-        var userName = $("#userName").val();
+        // var userName = $("#userName").val();
         var userPhone = $("#userPhone").val();
         var eventData = {};
-        console.log(sdate, stime, etime, userName, userPhone);
+        console.log(sdate, stime, etime, userPhone);
         if (!(/(\d{4})-(\d{2})-(\d{2})/.test(sdate)) || sdate == "") {
             alert("起始日期格式錯誤");
             return;
@@ -190,12 +186,12 @@ $(document).ready(function () {
             eventData.start += `T${stime}:00`;
             eventData.end += `T${etime}:00`;
         }
-        if (userName == "") {
-            alert("請輸入姓名");
-            return;
-        } else {
-            eventData.name = userName;
-        }
+        // if (userName == "") {
+        //     alert("請輸入姓名");
+        //     return;
+        // } else {
+        //     eventData.name = userName;
+        // }
         if (des == "") {
             alert("請輸入描述");
             return;
@@ -208,6 +204,7 @@ $(document).ready(function () {
         } else {
             eventData.phone = userPhone;
         }
+        eventData.name = getCookie("key");
         if (confirm("確定要預約嗎?")) {
             console.log(eventData);
             eventData.repeat = "none";
