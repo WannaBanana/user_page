@@ -44,17 +44,17 @@ $(document).ready(function () {
             console.log(event);
             $("#infoModal p").html(`
             <div class="row">
-                <div class="col s12 m6 mb-md-2">
+                <div class="col s12 m12">
                     借用人: ${event.name}
                 </div>
-                <div class="col s12 m6 mb-md-2">
+                <div class="col s12 m12">
                     用途: ${event.title}
                 </div>
-                <div class="col s12 m6">
-                    開始時間: ${event.start._i}
+                <div class="col s12 m12">
+                    開始時間: ${event.start._i.replace("T", " ").replace(":00.000Z", "")}
                 </div>
-                <div class="col s12 m6">
-                    結束時間: ${event.end._i}
+                <div class="col s12 m12">
+                    結束時間: ${event.end._i.replace("T", " ").replace(":00.000Z", "")}
                 </div>
             </div>
             `);

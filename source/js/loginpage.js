@@ -55,7 +55,7 @@ $(document).ready(function () {
         `);
       }
       $("#account").html(`
-        <img src="${data.photo}" style="width:110px; height:110px; border-radius:50%">
+      <div id="circle" style="background-image: url('${data.photo}')"></div>
       `);
     },
     error: function () {
