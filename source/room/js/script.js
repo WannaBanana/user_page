@@ -73,6 +73,8 @@ $(document).ready(function () {
                                         res[key][inner_key].color = "#5DB0B7";
                                     }
                                 }
+                                res[key][inner_key].start = new Date(res[key][inner_key].start);
+                                res[key][inner_key].end = new Date(res[key][inner_key].end);
                                 eventData.push(res[key][inner_key]);
                             }
                         }
@@ -216,7 +218,7 @@ $(document).ready(function () {
             eventData.repeat_end = "none";
             eventData.type = "inside";
             eventData.conflict = false;
-            var sta = getCookie("admin") == "true"?"reservation/admin":"reservation";
+            var sta = getCookie("admin") == "true" ? "reservation/admin" : "reservation";
             $.ajax({
                 url: `https://xn--pss23c41retm.tw/api/${sta}/${roomTitle}/${roomId}`,
                 type: 'POST',
@@ -232,6 +234,8 @@ $(document).ready(function () {
                     } else {
                         eventData.color = "orange";
                     }
+                    eventData.start = new Date(eventData.start);
+                    eventData.end = new Date(eventData.end);
                     $('#calendar').fullCalendar('addEventSource', [eventData]);
                     getData();
                     getClassData();
