@@ -58,10 +58,76 @@ $(document).ready(function () {
       <div id="circle" style="background-image: url('${data.photo}')"></div>
       `);
     },
-    error: function () {
-      alert("ERROR!!!");
+    error: function (error) {
+      console.log(error);
     }
   })
+
+  function getAlert() {
+    $.ajax({
+      url: `https://暨大猴子.tw/api/alert`,
+      type: "GET",
+      success: function (data) {
+        var alertNum = 0;
+        var str = "";
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            const element = data[key];
+            if (JSON.parse(getCookie("space")).hasOwnProperty(key)) {
+              for (const inner_key in element) {
+                if (element.hasOwnProperty(inner_key)) {
+                  const inner_element = element[inner_key];
+                  if (JSON.parse(getCookie("space"))[key].includes(inner_key)) {
+                    for (const final_key in inner_element) {
+                      if (inner_element.hasOwnProperty(final_key)) {
+                        const final_element = inner_element[final_key];
+                        if (final_key == new Date().toISOString().slice(0, 10)) {
+                          for (const last_key in final_element) {
+                            if (final_element.hasOwnProperty(last_key)) {
+                              alertNum++;
+                              str += `
+                              <a class="waves-effect waves-light btn ${final_element[last_key].state == "未處理"? "red":""} modal-trigger" href="#${last_key}">${final_element[last_key].event}</a>
+                              <div id="${last_key}" class="modal">
+                                <div class="modal-content black-text">
+                                  <h6>${final_element[last_key].event}</h6>
+                                  <p>
+                                    <div>Sescribe: ${final_element[last_key].describe}</div>
+                                    <div>Source: ${final_element[last_key].source}</div>
+                                    <div>State: ${final_element[last_key].state}</div>
+                                    <div>Time: ${ISOtoLocal(final_element[last_key].time)}</div>
+                                  </p>
+                                </div>
+                              </div>
+                              `;
+                              console.log(final_element[last_key]);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        if (alertNum > 0) {
+          M.toast({
+            html: `您有${alertNum}則通知!`
+          });
+          $("#alertImg").html(`
+            <span class="new badge" style="margin-left: 10px">${alertNum}</span>
+          `);
+          $("#alertContent").html(str);
+          $('.modal').modal();
+        }
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    })
+  }
+  getAlert();
 
   /* Upload Image */
   var base64photo;
@@ -228,7 +294,10 @@ $(document).ready(function () {
     $(`#classroom-content`).html(str);
   }
 
-
+  function ISOtoLocal(time) {
+    var tmp = new Date(time);
+    return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
