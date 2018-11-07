@@ -36,6 +36,7 @@
                 <li><a href="../index.html"><i class="material-icons">person</i></a></li>
                 <li><a class="modal-trigger" data-target="modal3">Record</a></li>
                 <li><a class="modal-trigger" data-target="modal2">Alerts</a></li>
+                <li><a class="modal-trigger" data-target="modal4">Help</a></li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
             </ul>
         </div>
@@ -45,6 +46,7 @@
         <li style="background-color: rgb(226, 170, 178);align-items: center"><a href="../index.html"><i class="material-icons white-text">person</i></a></li>
         <li class="text-center"><a class="modal-trigger" data-target="modal3">Record</a></li>
         <li class="text-center"><a class="modal-trigger" data-target="modal2">Alerts</a></li>
+        <li class="text-center"><a class="modal-trigger" data-target="modal4">Help</a></li>
         <li class="text-center"><a href="#" onclick="logout()">Logout</a></li>
     </ul>
 
@@ -76,7 +78,7 @@
                 <li class="tab"><a href="#itemrecord">物品借閱記錄</a></li>
             </ul>
             <br>
-            <div class="col s12" id="classroomrecord">
+            <div class="col s12 setfont" id="classroomrecord">
                 <table class="striped highlight responsive-table">
                     <form action="#">
                         <thead class="btn-border form-head-shadow">
@@ -94,7 +96,7 @@
                     </form>
                 </table>
             </div>
-            <div class="col s12" id="itemrecord">
+            <div class="col s12 setfont" id="itemrecord">
                 <table class="striped highlight responsive-table">
                     <form action="#">
                         <thead class="btn-border form-head-shadow">
@@ -191,6 +193,32 @@
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
+        </div>
+    </div>
+
+    <!-- Help -->
+    <!-- Modal Structure -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <h4>Color Hint</h4>
+            <hr>
+            <span class="modal4title setfont">使用者本人</span>
+            <br>
+            <span class="modal4content setfont">
+                <i class="material-icons" style="color:orange;">fiber_manual_record</i>未審核的借閱
+            </span>
+            <span class="modal4content setfont">
+                <i class="material-icons" style="color:#5db0b7;">fiber_manual_record</i>已審核的借閱
+            </span>
+            <br>
+            <span class="modal4title setfont">其他使用者</span>
+            <br>
+            <span class="modal4content setfont">
+                <i class="material-icons" style="color:red;">fiber_manual_record</i>未審核的借閱
+            </span>
+            <span class="modal4content setfont">
+                <i class="material-icons" style="color:rgb(76,132,166);">fiber_manual_record</i>已審核的借閱
+            </span>
         </div>
     </div>
 

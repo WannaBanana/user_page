@@ -12,7 +12,7 @@ select {
 }
 
 .setfont {
-    font-family: "微軟正黑體";
+    font-family: "微軟正黑體" !important;
 }
 
 .text-center {
@@ -128,7 +128,6 @@ select {
     background-color: white;
     color: black;
     font-size: 16px;
-    font-size: "微軟正黑體" !important;
 }
   
 li a {
@@ -169,6 +168,7 @@ table {
     padding: 10px 0px 0px 0px;
 }
 
+/* 借用資訊 */
 #infoModal {
     max-width: 340px !important;
     border-radius: 5px;
@@ -185,4 +185,21 @@ table {
         font-size: 18px !important;
         line-height: 40px !important;
     }
+}
+
+/* Color Hint */
+#modal4 {
+    max-width: 350px;
+    border-radius: 5px;
+    max-height: 500px;
+}
+
+.modal4title {
+    font-size: 23px;
+    line-height: 45px;
+}
+
+.modal4content {
+    font-size: 16px;
+    line-height: 40px;
 }

@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('.tabs').tabs();
     $('.modal').modal();
     $('.collapsible').collapsible();
+    $('.tap-target').tapTarget();
     M.AutoInit();
 
     var roomTitle = "",
