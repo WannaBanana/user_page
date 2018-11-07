@@ -188,3 +188,20 @@ table {
         line-height: 40px !important;
     }
 }
+
+/* Color Hint */
+#modal4 {
+    max-width: 350px;
+    border-radius: 5px;
+    max-height: 500px;
+}
+
+.modal4title {
+    font-size: 23px;
+    line-height: 45px;
+}
+
+.modal4content {
+    font-size: 16px;
+    line-height: 40px;
+}
