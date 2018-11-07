@@ -51,10 +51,10 @@ $(document).ready(function () {
                     用途: ${event.title}
                 </div>
                 <div class="col s12 m12">
-                    開始時間: ${event.start._i.replace("T", " ").replace(":00.000Z", "")}
+                    開始時間: ${ISOtoLocal(event.start._i)}
                 </div>
                 <div class="col s12 m12">
-                    結束時間: ${event.end._i.replace("T", " ").replace(":00.000Z", "")}
+                    結束時間: ${ISOtoLocal(event.end._i)}
                 </div>
             </div>
             `);
@@ -168,5 +168,8 @@ $(document).ready(function () {
         // callback([{start: "2018-09-09", title: "財金系"}]);
         // }
     });
-
+    function ISOtoLocal(time){
+        var tmp = new Date(time);
+        return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDay()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+    }
 });

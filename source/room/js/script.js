@@ -68,6 +68,10 @@ $(document).ready(function () {
                                     } else {
                                         res[key][inner_key].color = "red";
                                     }
+                                } else {
+                                    if (res[key][inner_key].name == getCookie("key")) {
+                                        res[key][inner_key].color = "#5DB0B7";
+                                    }
                                 }
                                 eventData.push(res[key][inner_key]);
                             }
@@ -212,8 +216,9 @@ $(document).ready(function () {
             eventData.repeat_end = "none";
             eventData.type = "inside";
             eventData.conflict = false;
+            var sta = getCookie("admin") == "true"?"reservation/admin":"reservation";
             $.ajax({
-                url: `https://xn--pss23c41retm.tw/api/reservation/${roomTitle}/${roomId}`,
+                url: `https://xn--pss23c41retm.tw/api/${sta}/${roomTitle}/${roomId}`,
                 type: 'POST',
                 data: eventData,
                 error: function (xhr) {
@@ -222,7 +227,14 @@ $(document).ready(function () {
                 },
                 success: function (res) {
                     console.log(res);
+                    if (getCookie("admin") == "true") {
+                        eventData.color = "#5DB0B7";
+                    } else {
+                        eventData.color = "orange";
+                    }
                     $('#calendar').fullCalendar('addEventSource', [eventData]);
+                    getData();
+                    getClassData();
                 }
             });
             var instance = M.Modal.getInstance(document.getElementById("modal1"));
@@ -288,11 +300,11 @@ $(document).ready(function () {
                             str += `<tr>
                             <td>${last_element.itemID}</td>
                             <td>${final_key}</td>
-                            <td id="${last_key}StartTime">${start}</td>
-                            <td id="${last_key}EndTime">${end}</td>
-                            <td id="${last_key}Title">${last_element.title}</td>
-                            <td id="${last_key}Repeat">${last_element.repeat_type ? last_element.repeat_type : ""}</td>
-                            <td id="${last_key}State">${last_element.state}</td>
+                            <td>${ISOtoLocal(last_element.start)}</td>
+                            <td>${ISOtoLocal(last_element.end)}</td>
+                            <td>${last_element.title}</td>
+                            <td>${last_element.repeat_type ? last_element.repeat_type : ""}</td>
+                            <td>${last_element.state}</td>
                             </tr>`;
                         }
                     }
@@ -333,18 +345,16 @@ $(document).ready(function () {
                     for (const last_key in final_element) {
                         var last_element = final_element[last_key];
                         if (last_element.name == getCookie("key")) {
-                            var start = last_element.start.replace(final_key, "").replace("T", "").replace(".000Z", "");
-                            var end = last_element.end.replace(final_key, "").replace("T", "").replace(".000Z", "");
                             console.log(inner_element);
                             str +=
                                 `<tr>
                                 <td>${key}</td>
                                 <td>${inner_key}</td>
                                 <td>${final_key}</td>
-                                <td id="${last_key}StartTime">${start}</td>
-                                <td id="${last_key}EndTime">${end}</td>
-                                <td id="${last_key}Title">${last_element.title}</td>
-                                <td id="${last_key}State">${last_element.state}</td>
+                                <td>${ISOtoLocal(last_element.start)}</td>
+                                <td>${ISOtoLocal(last_element.end)}</td>
+                                <td>${last_element.title}</td>
+                                <td>${last_element.state}</td>
                                 </tr>`;
                         }
                     }
@@ -352,5 +362,10 @@ $(document).ready(function () {
             }
         }
         $(`#classroom-content`).html(str);
+    }
+
+    function ISOtoLocal(time) {
+        var tmp = new Date(time);
+        return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDay()} ${tmp.getHours()}:${tmp.getMinutes()}`;
     }
 });
