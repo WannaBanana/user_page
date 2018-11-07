@@ -73,8 +73,6 @@ $(document).ready(function () {
                                         res[key][inner_key].color = "#5DB0B7";
                                     }
                                 }
-                                res[key][inner_key].start = new Date(res[key][inner_key].start);
-                                res[key][inner_key].end = new Date(res[key][inner_key].end);
                                 eventData.push(res[key][inner_key]);
                             }
                         }
@@ -82,6 +80,7 @@ $(document).ready(function () {
                 }
                 console.log(eventData);
                 $('#calendar').fullCalendar('addEventSource', eventData);
+                $('#calendar').fullCalendar('option', 'timezone', 'Asia/Taipei');
             }
         });
     }
@@ -234,8 +233,6 @@ $(document).ready(function () {
                     } else {
                         eventData.color = "orange";
                     }
-                    eventData.start = new Date(eventData.start);
-                    eventData.end = new Date(eventData.end);
                     $('#calendar').fullCalendar('addEventSource', [eventData]);
                     getData();
                     getClassData();
@@ -299,8 +296,6 @@ $(document).ready(function () {
                     for (const last_key in final_element) {
                         var last_element = final_element[last_key];
                         if (last_element.studentID == getCookie("key")) {
-                            var start = last_element.start.replace(final_key, "").replace("T", "").replace(".000Z", "");
-                            var end = last_element.end.replace(final_key, "").replace("T", "").replace(".000Z", "");
                             str += `<tr>
                             <td>${last_element.itemID}</td>
                             <td>${final_key}</td>
