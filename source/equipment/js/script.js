@@ -162,7 +162,7 @@ $(document).ready(function () {
             <input type="text" id="end-time" class="timepicker" placeholder="End-Time">
             <div class="input-field">
                 <input type="text" id="title" name="title">
-                <label for="title">Describe</label>
+                <label for="title">Description</label>
             </div>
             `;
             $(".modal-footer").html(`

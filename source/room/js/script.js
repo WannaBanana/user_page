@@ -128,7 +128,7 @@ $(document).ready(function () {
             <input type="text" id="end-time" class="timepicker" placeholder="End-Time">
             <div class="input-field">
                 <input type="text" id="des">
-                <label for="des">Describe</label>
+                <label for="des">Description</label>
             </div>
             <div class="input-field">
                 <input type="text" id="userPhone">
