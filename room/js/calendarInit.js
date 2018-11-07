@@ -168,7 +168,8 @@ $(document).ready(function () {
         // callback([{start: "2018-09-09", title: "財金系"}]);
         // }
     });
-    function ISOtoLocal(time){
+
+    function ISOtoLocal(time) {
         var tmp = new Date(time);
         return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
     }

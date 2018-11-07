@@ -88,8 +88,6 @@ $(document).ready(function () {
                                         res[key][inner_key].color = "#5DB0B7";
                                     }
                                 }
-                                res[key][inner_key].start = new Date(res[key][inner_key].start);
-                                res[key][inner_key].end = new Date(res[key][inner_key].end);
                                 eventData.push(res[key][inner_key]);
                             }
                         }
@@ -97,6 +95,7 @@ $(document).ready(function () {
                 }
                 console.log(eventData);
                 $('#calendar').fullCalendar('addEventSource', eventData);
+                $('#calendar').fullCalendar('option', 'timezone', 'Asia/Taipei');
             }
         });
     }
@@ -258,8 +257,6 @@ $(document).ready(function () {
                     } else {
                         eventData.color = "orange";
                     }
-                    eventData.start = new Date(eventData.start);
-                    eventData.end = new Date(eventData.end);
                     $('#calendar').fullCalendar('addEventSource', [eventData]);
                     getData();
                     getClassData();
