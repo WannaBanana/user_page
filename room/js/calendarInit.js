@@ -51,10 +51,10 @@ $(document).ready(function () {
                     用途: ${event.title}
                 </div>
                 <div class="col s12 m12">
-                    開始時間: ${ISOtoLocal(event.start._i)}
+                    開始時間: ${new Date(event.start._i).toLocaleString()}
                 </div>
                 <div class="col s12 m12">
-                    結束時間: ${ISOtoLocal(event.end._i)}
+                    結束時間: ${new Date(event.end._i).toLocaleString()}
                 </div>
             </div>
             `);

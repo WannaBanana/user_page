@@ -12,7 +12,7 @@ select {
 }
 
 .setfont {
-    font-family: "微軟正黑體";
+    font-family: "微軟正黑體" !important;
 }
 
 .text-center {
