@@ -296,11 +296,11 @@ $(document).ready(function () {
                     for (const last_key in final_element) {
                         var last_element = final_element[last_key];
                         if (last_element.studentID == getCookie("key")) {
-                            str += `<tr>
+                            str += `<tr class="setfont">>
                             <td>${last_element.itemID}</td>
                             <td>${final_key}</td>
-                            <td>${ISOtoLocal(last_element.start)}</td>
-                            <td>${ISOtoLocal(last_element.end)}</td>
+                            <td>${ISOtoLocal(last_element.start).slice(11)}</td>
+                            <td>${ISOtoLocal(last_element.end).slice(11)}</td>
                             <td>${last_element.title}</td>
                             <td>${last_element.repeat_type ? last_element.repeat_type : ""}</td>
                             <td>${last_element.state}</td>
@@ -346,12 +346,12 @@ $(document).ready(function () {
                         if (last_element.name == getCookie("key")) {
                             console.log(inner_element);
                             str +=
-                                `<tr>
+                                `<tr class="setfont">
                                 <td>${key}</td>
                                 <td>${inner_key}</td>
                                 <td>${final_key}</td>
-                                <td>${ISOtoLocal(last_element.start)}</td>
-                                <td>${ISOtoLocal(last_element.end)}</td>
+                                <td>${ISOtoLocal(last_element.start).slice(11)}</td>
+                                <td>${ISOtoLocal(last_element.end).slice(11)}</td>
                                 <td>${last_element.title}</td>
                                 <td>${last_element.state}</td>
                                 </tr>`;
@@ -365,6 +365,6 @@ $(document).ready(function () {
 
     function ISOtoLocal(time) {
         var tmp = new Date(time);
-        return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+        return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
     }
 });
