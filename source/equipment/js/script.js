@@ -320,7 +320,7 @@ $(document).ready(function () {
                     for (const last_key in final_element) {
                         var last_element = final_element[last_key];
                         if (last_element.studentID == getCookie("key")) {
-                            str += `<tr>
+                            str += `<tr class="setfont">
                             <td>${last_element.itemID}</td>
                             <td>${new Date(last_element.start).toLocaleDateString()}</td>
                             <td>${new Date(last_element.start).toLocaleTimeString().replace(":00", "")}</td>
@@ -370,7 +370,7 @@ $(document).ready(function () {
                         if (last_element.name == getCookie("key")) {
                             console.log(inner_element);
                             str +=
-                                `<tr>
+                                `<tr class="setfont">
                                 <td>${key}</td>
                                 <td>${inner_key}</td>
                                 <td>${new Date(last_element.start).toLocaleDateString()}</td>
@@ -389,6 +389,6 @@ $(document).ready(function () {
 
     function ISOtoLocal(time) {
         var tmp = new Date(time);
-        return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+        return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
     }
 });

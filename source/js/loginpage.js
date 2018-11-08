@@ -86,7 +86,7 @@ $(document).ready(function () {
                             if (final_element.hasOwnProperty(last_key)) {
                               alertNum++;
                               str += `
-                              <a class="waves-effect waves-light btn ${final_element[last_key].state == "未處理"? "red":""} modal-trigger" href="#${last_key}">${final_element[last_key].event}</a>
+                              <a class="waves-effect waves-light btn ${final_element[last_key].state == "未處理" ? "red" : ""} modal-trigger" href="#${last_key}">${final_element[last_key].event}</a>
                               <div id="${last_key}" class="modal">
                                 <div class="modal-content black-text">
                                   <h6>${final_element[last_key].event}</h6>
@@ -241,7 +241,7 @@ $(document).ready(function () {
 
   function ISOtoLocal(time) {
     var tmp = new Date(time);
-    return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+    return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
   }
 
   // Get Personal Class Reservation Record 
@@ -296,7 +296,7 @@ $(document).ready(function () {
 
   function ISOtoLocal(time) {
     var tmp = new Date(time);
-    return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+    return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
   }
 });
 
