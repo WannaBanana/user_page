@@ -86,16 +86,26 @@ $(document).ready(function () {
                             if (final_element.hasOwnProperty(last_key)) {
                               alertNum++;
                               str += `
-                              <a class="waves-effect waves-light btn ${final_element[last_key].state == "未處理" ? "red" : ""} modal-trigger" href="#${last_key}">${final_element[last_key].event}</a>
-                              <div id="${last_key}" class="modal">
+                              <div class="box3 sb14 modal-trigger" href="#${last_key}">
+                                <span class="boxcontent">${final_element[last_key].event}</span>
+                              </div>
+                              <div id="${last_key}" class="modal alertmodal">
                                 <div class="modal-content black-text">
-                                  <h6>${final_element[last_key].event}</h6>
-                                  <p>
-                                    <div>Sescribe: ${final_element[last_key].describe}</div>
-                                    <div>Source: ${final_element[last_key].source}</div>
-                                    <div>State: ${final_element[last_key].state}</div>
-                                    <div>Time: ${ISOtoLocal(final_element[last_key].time)}</div>
-                                  </p>
+                                  <h5>${final_element[last_key].event}</h5>
+                                  <hr>
+                                  <span class="eventTitle">Description</span>
+                                  <div class="eventText">${final_element[last_key].describe}</div>
+                                  <div class="divider"></div>
+                                  <span class="eventTitle">Location</span>
+                                  <div class="eventText">${final_element[last_key].source}</div>
+                                  <div class="divider"></div>
+                                  <span class="eventTitle">Time</span>
+                                  <div class="eventText">
+                                  ${new Date(final_element[last_key].time).toLocaleDateString() + " " + new Date(final_element[last_key].time).toLocaleTimeString()}
+                                  </div>
+                                  <div class="divider"></div>
+                                  <span class="eventTitle">State</span>
+                                  <div class="eventText">${final_element[last_key].state}</div>
                                 </div>
                               </div>
                               `;
@@ -113,10 +123,10 @@ $(document).ready(function () {
         }
         if (alertNum > 0) {
           M.toast({
-            html: `您有${alertNum}則通知!`
+            html: `You have ${alertNum} messages!`
           });
           $("#alertImg").html(`
-            <span class="new badge" style="margin-left: 10px">${alertNum}</span>
+            <span class="new badge" style="margin-left:10px;background-color:#90a4ae;">${alertNum}</span>
           `);
           $("#alertContent").html(str);
           $('.modal').modal();
@@ -239,10 +249,10 @@ $(document).ready(function () {
     $(`#itemrecord-content`).html(str);
   }
 
-  function ISOtoLocal(time) {
-    var tmp = new Date(time);
-    return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
-  }
+  // function ISOtoLocal(time) {
+  //   var tmp = new Date(time);
+  //   return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+  // }
 
   // Get Personal Class Reservation Record 
   function getClassData() {
@@ -294,10 +304,10 @@ $(document).ready(function () {
     $(`#classroom-content`).html(str);
   }
 
-  function ISOtoLocal(time) {
-    var tmp = new Date(time);
-    return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
-  }
+  // function ISOtoLocal(time) {
+  //   var tmp = new Date(time);
+  //   return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+  // }
 });
 
 document.addEventListener('DOMContentLoaded', function () {

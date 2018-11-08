@@ -8,7 +8,7 @@ select {
 }
 
 .nav-wrapper {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
 }
 
 .setfont {
@@ -98,7 +98,7 @@ select {
 }
 
 #myNavBar li a {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
     color: white;
     font-weight: bold;
     font-size: 23px;
@@ -130,9 +130,8 @@ select {
     font-size: 16px;
 }
   
-li a {
+.tabfont {
     font-size: 18px !important;
-    font-size: "微軟正黑體" !important;
 }
   
 tr label {
@@ -170,14 +169,13 @@ table {
 
 /* 借用資訊 */
 #infoModal {
-    max-width: 340px !important;
+    max-width: 350px !important;
     border-radius: 5px;
     font-family: "微軟正黑體";
 }
 
 #infoModal p {
-    font-size: 20px !important;
-    line-height: 40px !important;
+    margin: 10px;
 }
 
 @media only screen and (max-width: 380px) {
@@ -202,4 +200,60 @@ table {
 .modal4content {
     font-size: 16px;
     line-height: 40px;
+}
+
+/*Alert Content*/
+
+#alertContent {
+    padding: 10px 30px;
+}
+  
+.box3 {
+    width: 150px;
+    margin: 10px 0px;
+    border-radius: 15px;
+    background: #cfd8dc;
+    color: black;
+    padding: 8px;
+    text-align: left;
+    font-family: "微軟正黑體";
+    position: relative;
+    cursor: pointer;
+}
+  
+.sb14:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid #cfd8dc;
+    border-top: 15px solid #cfd8dc;
+    border-bottom: 15px solid transparent;
+    left: -16px;
+    top: 0px;
+}
+  
+.boxcontent {
+    position: relative;
+    left: 20px;
+    font-size: 16px;
+}
+  
+.alertmodal {
+    font-family: "微軟正黑體";
+    min-width: 300px;
+    border-radius: 5px;
+    max-height: 500px;
+    text-align: left;
+}
+  
+.eventTitle {
+    font-size: 22px;
+    font-weight: 450;
+    line-height: 40px !important;
+}
+  
+.eventText {
+    font-size: 18px;
 }

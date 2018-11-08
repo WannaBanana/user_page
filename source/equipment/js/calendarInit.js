@@ -43,18 +43,17 @@ $(document).ready(function () {
             console.log(event);
             $("#infoModal p").html(`
             <div class="row">
-                <div class="col s12 m12">
-                    借用人: ${event.studentID}
-                </div>
-                <div class="col s12 m12">
-                    用途: ${event.title}
-                </div>
-                <div class="col s12 m12">
-                    開始時間: ${new Date(event.start._i).toLocaleString()}
-                </div>
-                <div class="col s12 m12">
-                    結束時間: ${new Date(event.end._i).toLocaleString()}
-                </div>
+                <span class="eventTitle">借用人</span>
+                <div class="eventText">${event.studentID}</div>
+                <div class="divider"></div>
+                <span class="eventTitle">用途</span>
+                <div class="eventText">${event.title}</div>
+                <div class="divider"></div>
+                <span class="eventTitle">開始時間</span>
+                <div class="eventText">${new Date(event.start._i).toLocaleString()}</div>
+                <div class="divider"></div>
+                <span class="eventTitle">結束時間</span>
+                <div class="eventText">${new Date(event.end._i).toLocaleString()}</div>
             </div>
             `);
             M.Modal.init(document.querySelector('#infoModal')).open();
@@ -172,6 +171,6 @@ $(document).ready(function () {
 
     function ISOtoLocal(time) {
         var tmp = new Date(time);
-        return `${tmp.getYear()+1900}/${tmp.getMonth()+1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+        return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
     }
 });
