@@ -290,6 +290,79 @@ $(document).ready(function () {
     }
     eventBind();
 
+    function getAlert() {
+        $.ajax({
+            url: `https://暨大猴子.tw/api/alert`,
+            type: "GET",
+            success: function (data) {
+                var alertNum = 0;
+                var str = "";
+                for (const key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        const element = data[key];
+                        if (JSON.parse(getCookie("space")).hasOwnProperty(key)) {
+                            for (const inner_key in element) {
+                                if (element.hasOwnProperty(inner_key)) {
+                                    const inner_element = element[inner_key];
+                                    if (JSON.parse(getCookie("space"))[key].includes(inner_key)) {
+                                        for (const final_key in inner_element) {
+                                            if (inner_element.hasOwnProperty(final_key)) {
+                                                const final_element = inner_element[final_key];
+                                                if (final_key == new Date().toISOString().slice(0, 10)) {
+                                                    for (const last_key in final_element) {
+                                                        if (final_element.hasOwnProperty(last_key)) {
+                                                            alertNum++;
+                                                            str += `
+                                                            <div class="box3 sb14 modal-trigger" href="#${last_key}">
+                                                            <span class="boxcontent">${final_element[last_key].event}</span>
+                                                            </div>
+                                                            <div id="${last_key}" class="modal alertmodal">
+                                                            <div class="modal-content black-text">
+                                                            <h5>${final_element[last_key].event}</h5>
+                                                            <hr>
+                                                            <span class="eventTitle">Description</span>
+                                                            <div class="eventText">${final_element[last_key].describe}</div>
+                                                            <div class="divider"></div>
+                                                            <span class="eventTitle">Location</span>
+                                                            <div class="eventText">${final_element[last_key].source}</div>
+                                                            <div class="divider"></div>
+                                                            <span class="eventTitle">Time</span>
+                                                            <div class="eventText">
+                                                            ${new Date(final_element[last_key].time).toLocaleDateString() + " " + new Date(final_element[last_key].time).toLocaleTimeString()}
+                                                            </div>
+                                                            <div class="divider"></div>
+                                                            <span class="eventTitle">State</span>
+                                                            <div class="eventText">${final_element[last_key].state}</div>
+                                                            </div>
+                                                            </div>
+                                                            `;
+                                                            console.log(final_element[last_key]);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (alertNum > 0) {
+                    $("#alertImg").html(`
+                    <span class="new badge" style="margin-left:10px;background-color:#90a4ae;">${alertNum}</span>
+                    `);
+                    $("#alertContent").html(str);
+                    $('.modal').modal();
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
+    getAlert();
+
     // Get Personal Item Borrowing Record 
     function getData() {
         $.ajax({

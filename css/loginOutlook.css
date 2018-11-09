@@ -282,5 +282,63 @@ table {
 }
 
 .setfont {
-  font-size: "微軟正黑體" !important;
+  font-family: "微軟正黑體" !important;
 }
+
+/*Alert Content*/
+
+#alertContent {
+  padding: 10px 30px;
+}
+
+.box3 {
+  width: 150px;
+  margin: 10px 0px;
+  border-radius: 15px;
+  background: #eceff1;
+  color: black;
+  padding: 5px;
+  text-align: left;
+  font-family: "微軟正黑體";
+  position: relative;
+  cursor: pointer;
+}
+
+.sb14:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid transparent;
+  border-right: 15px solid #eceff1;
+  border-top: 15px solid #eceff1;
+  border-bottom: 15px solid transparent;
+  left: -16px;
+  top: 0px;
+}
+
+.boxcontent {
+  position: relative;
+  left: 20px;
+  font-size: 16px;
+}
+
+.alertmodal {
+  font-family: "微軟正黑體";
+  min-width: 300px;
+  border-radius: 5px;
+  max-height: 500px;
+  text-align: left;
+}
+
+.eventTitle {
+  font-size: 22px;
+  font-weight: 450;
+  line-height: 40px !important;
+}
+
+.eventText {
+  font-size: 18px;
+}
+
+/* ${final_element[last_key].state == "未處理" ? "red" : ""} */
