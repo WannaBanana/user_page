@@ -39,6 +39,12 @@ select {
     background-color: #EFA5AF !important;
 }
 
+.d-none-sm {
+    position: relative;
+    top: 3px;
+    width: 150px;
+}
+
 /* calendar */
 #calendar {
     margin: 0 auto;
