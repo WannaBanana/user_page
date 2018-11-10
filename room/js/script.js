@@ -73,13 +73,15 @@ $(document).ready(function () {
                                         res[key][inner_key].color = "#5DB0B7";
                                     }
                                 }
+                                res[key][inner_key].start = moment(res[key][inner_key].start).local().format('YYYY-MM-DDTHH:mm:ss');
+                                res[key][inner_key].end = moment(res[key][inner_key].end).local().format('YYYY-MM-DDTHH:mm:ss');
                                 eventData.push(res[key][inner_key]);
                             }
                         }
                     }
                 }
                 console.log(eventData);
-                $('#calendar').fullCalendar('option', 'timezone', 'Asia/Taipei');
+                // $('#calendar').fullCalendar('option', 'timezone', 'Asia/Taipei');
                 $('#calendar').fullCalendar('addEventSource', eventData);
             }
         });

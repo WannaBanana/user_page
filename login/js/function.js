@@ -65,7 +65,7 @@ $(document).ready(function () {
             setCookie("key", $("#signin_account").val(), 6);
             setCookie("value", sha256($("#signin_account").val() + s), 6);
             setCookie("admin", result.admin, 6);
-            setCookie("space", result.space ?JSON.stringify(result.space):"", 6);
+            setCookie("space", result.space ? JSON.stringify(result.space) : "", 6);
             window.location.href = '../index.html';
             console.log("驗證完成");
           }

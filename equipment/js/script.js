@@ -88,14 +88,17 @@ $(document).ready(function () {
                                         res[key][inner_key].color = "#5DB0B7";
                                     }
                                 }
+                                res[key][inner_key].start = moment(res[key][inner_key].start).local().format('YYYY-MM-DDTHH:mm:ss');
+                                res[key][inner_key].end = moment(res[key][inner_key].end).local().format('YYYY-MM-DDTHH:mm:ss');
                                 eventData.push(res[key][inner_key]);
+                                console.log(res[key][inner_key].start);
                             }
                         }
                     }
                 }
                 console.log(eventData);
                 $('#calendar').fullCalendar('addEventSource', eventData);
-                $('#calendar').fullCalendar('option', 'timezone', 'Asia/Taipei');
+                // $('#calendar').fullCalendar('option', 'timezone', 'Asia/Taipei');
             }
         });
     }
@@ -336,7 +339,6 @@ $(document).ready(function () {
                                                             </div>
                                                             </div>
                                                             `;
-                                                            console.log(final_element[last_key]);
                                                         }
                                                     }
                                                 }
@@ -460,8 +462,9 @@ $(document).ready(function () {
         $(`#classroom-content`).html(str);
     }
 
-    function ISOtoLocal(time) {
-        var tmp = new Date(time);
-        return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
-    }
+    // function ISOtoLocal(time) {
+    //     var tmp = new Date(time);
+    //     return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
+    // }
+
 });

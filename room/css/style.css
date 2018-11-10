@@ -114,6 +114,12 @@ select {
     font-size: 18px;
 }
 
+.d-none-sm {
+    position: relative;
+    top: 3px;
+    width: 150px;
+}
+
 /* warning */
 #modal2 {
     /* background-color: #ffab91; */

@@ -183,3 +183,12 @@ label {
     font-size: 35px !important;
   }
 }
+
+.tap-target {
+  color: #fff;
+}
+
+.tap-target a {
+    color: #fff;
+    text-decoration:underline;
+}
