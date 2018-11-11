@@ -69,7 +69,8 @@ $(document).ready(function () {
       type: "GET",
       success: function (data) {
         var alertNum = 0;
-        var str = "";
+        var strBtn = "";
+        var strModal = "";
         for (const key in data) {
           if (data.hasOwnProperty(key)) {
             const element = data[key];
@@ -85,10 +86,12 @@ $(document).ready(function () {
                           for (const last_key in final_element) {
                             if (final_element.hasOwnProperty(last_key)) {
                               alertNum++;
-                              str += `
+                              strBtn += `
                               <div class="box3 sb14 modal-trigger" href="#${last_key}">
                                 <span class="boxcontent">${final_element[last_key].event}</span>
                               </div>
+                              `;
+                              strModal += `
                               <div id="${last_key}" class="modal alertmodal">
                                 <div class="modal-content black-text">
                                   <h5>${final_element[last_key].event}</h5>
@@ -128,7 +131,8 @@ $(document).ready(function () {
           $("#alertImg").html(`
             <span class="new badge" style="margin-left:10px;background-color:#90a4ae;">${alertNum}</span>
           `);
-          $("#alertContent").html(str);
+          $("#alertContent").html(strBtn);
+          $("#alertModal").html(strModal);
           $('.modal').modal();
         }
       },

@@ -50,10 +50,10 @@ $(document).ready(function () {
                 <div class="eventText">${event.title}</div>
                 <div class="divider"></div>
                 <span class="eventTitle">開始時間</span>
-                <div class="eventText">${new Date(event.start._i).toLocaleString()}</div>
+                <div class="eventText">${(event.start._i).replace("T", " ").replace(":00", "")}</div>
                 <div class="divider"></div>
                 <span class="eventTitle">結束時間</span>
-                <div class="eventText">${new Date(event.end._i).toLocaleString()}</div>
+                <div class="eventText">${(event.end._i).replace("T", " ").replace(":00", "")}</div>
             </div>
             `);
             M.Modal.init(document.querySelector('#infoModal')).open();
