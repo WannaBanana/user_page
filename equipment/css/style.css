@@ -248,19 +248,28 @@ table {
 }
   
 .alertmodal {
-    font-family: "微軟正黑體";
-    min-width: 300px;
-    border-radius: 5px;
-    max-height: 500px;
+    font-family: "微軟正黑體" !important;
+    border-radius: 3px;
+    max-width: 350px !important;
+    max-height: 450px !important;
     text-align: left;
-}
+  }
   
-.eventTitle {
+  .eventTitle {
     font-size: 22px;
     font-weight: 450;
-    line-height: 40px !important;
-}
+    line-height: 50px;
+  }
   
-.eventText {
+  .eventText {
     font-size: 18px;
-}
+  }
+  
+  .eventTitle0 {
+    font-size: 30px;
+  }
+  
+  hr {
+    margin-bottom: 0px !important;
+    margin-top: 3px !important;
+  }
