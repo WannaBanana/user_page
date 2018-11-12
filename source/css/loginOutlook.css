@@ -324,9 +324,9 @@ table {
 }
 
 .alertmodal {
-  font-family: "微軟正黑體";
-  border-radius: 5px;
-  max-width: 300px !important;
+  font-family: "微軟正黑體" !important;
+  border-radius: 3px;
+  max-width: 350px !important;
   max-height: 450px !important;
   text-align: left;
 }
@@ -334,11 +334,21 @@ table {
 .eventTitle {
   font-size: 22px;
   font-weight: 450;
-  line-height: 10px;
+  line-height: 50px;
 }
 
 .eventText {
   font-size: 18px;
 }
+
+.eventTitle0 {
+  font-size: 30px;
+}
+
+hr {
+  margin-bottom: 0px !important;
+  margin-top: 3px !important;
+}
+
 
 /* ${final_element[last_key].state == "未處理" ? "red" : ""} */

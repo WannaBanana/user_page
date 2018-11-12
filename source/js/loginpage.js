@@ -94,20 +94,20 @@ $(document).ready(function () {
                               strModal += `
                               <div id="${last_key}" class="modal alertmodal">
                                 <div class="modal-content black-text">
-                                  <h5>${final_element[last_key].event}</h5>
+                                  <div class="eventTitle0">${final_element[last_key].event}</div>
                                   <hr>
-                                  <span class="eventTitle">Description</span>
+                                  <div class="eventTitle">Description</div>
                                   <div class="eventText">${final_element[last_key].describe}</div>
                                   <div class="divider"></div>
-                                  <span class="eventTitle">Location</span>
+                                  <div class="eventTitle">Location</div>
                                   <div class="eventText">${final_element[last_key].source}</div>
                                   <div class="divider"></div>
-                                  <span class="eventTitle">Time</span>
+                                  <div class="eventTitle">Time</div>
                                   <div class="eventText">
                                   ${new Date(final_element[last_key].time).toLocaleDateString() + " " + new Date(final_element[last_key].time).toLocaleTimeString()}
                                   </div>
                                   <div class="divider"></div>
-                                  <span class="eventTitle">State</span>
+                                  <div class="eventTitle">State</div>
                                   <div class="eventText">${final_element[last_key].state}</div>
                                 </div>
                               </div>
