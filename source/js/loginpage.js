@@ -71,6 +71,7 @@ $(document).ready(function () {
         var alertNum = 0;
         var strBtn = "";
         var strModal = "";
+        var count = 0;
         for (const key in data) {
           if (data.hasOwnProperty(key)) {
             const element = data[key];
@@ -85,6 +86,9 @@ $(document).ready(function () {
                         if (final_key == new Date().toISOString().slice(0, 10)) {
                           for (const last_key in final_element) {
                             if (final_element.hasOwnProperty(last_key)) {
+                              if(count++ >= 3){
+                                break;
+                              }
                               alertNum++;
                               strBtn += `
                               <div class="box3 sb14 modal-trigger" href="#${last_key}">
