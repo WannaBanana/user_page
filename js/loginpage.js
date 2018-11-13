@@ -86,7 +86,7 @@ $(document).ready(function () {
                         if (final_key == new Date().toISOString().slice(0, 10)) {
                           for (const last_key in final_element) {
                             if (final_element.hasOwnProperty(last_key)) {
-                              if(count++ >= 3){
+                              if (count++ >= 3) {
                                 break;
                               }
                               alertNum++;
@@ -311,11 +311,6 @@ $(document).ready(function () {
     }
     $(`#classroom-content`).html(str);
   }
-
-  // function ISOtoLocal(time) {
-  //   var tmp = new Date(time);
-  //   return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
-  // }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
