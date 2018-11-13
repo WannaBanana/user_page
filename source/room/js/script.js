@@ -371,6 +371,7 @@ $(document).ready(function () {
             type: "GET",
             success: function (data) {
                 var alertNum = 0;
+                var count = 0;
                 var strBtn = "";
                 var strModal = "";
                 for (const key in data) {
@@ -387,6 +388,9 @@ $(document).ready(function () {
                                                 if (final_key == new Date().toISOString().slice(0, 10)) {
                                                     for (const last_key in final_element) {
                                                         if (final_element.hasOwnProperty(last_key)) {
+                                                            if (count++ >= 3) {
+                                                                break;
+                                                            }
                                                             alertNum++;
                                                             strBtn += `
                                                             <div class="box3 sb14 modal-trigger" href="#${last_key}">
@@ -427,9 +431,9 @@ $(document).ready(function () {
                     }
                 }
                 if (alertNum > 0) {
-                    M.toast({
-                        html: `You have ${alertNum} messages!`
-                    });
+                    // M.toast({
+                    //     html: `You have ${alertNum} messages!`
+                    // });
                     $("#alertImg").html(`
                     <span class="new badge" style="margin-left:10px;background-color:#90a4ae;">${alertNum}</span>
                     `);
@@ -444,10 +448,4 @@ $(document).ready(function () {
         })
     }
     getAlert();
-
-
-    // function ISOtoLocal(time) {
-    //     var tmp = new Date(time);
-    //     return `${tmp.getYear() + 1900}/${tmp.getMonth() + 1}/${tmp.getDate()} ${tmp.getHours()}:${tmp.getMinutes()}`;
-    // }
 });
