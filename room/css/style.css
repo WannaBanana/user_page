@@ -252,23 +252,34 @@ table {
     max-width: 350px !important;
     max-height: 450px !important;
     text-align: left;
-  }
+}
   
-  .eventTitle {
+.eventTitle {
     font-size: 22px;
     font-weight: 450;
     line-height: 50px;
-  }
+}
   
-  .eventText {
+.eventText {
     font-size: 18px;
-  }
+}
   
-  .eventTitle0 {
+.eventTitle0 {
     font-size: 30px;
-  }
+}
   
-  hr {
+hr {
     margin-bottom: 0px !important;
     margin-top: 3px !important;
-  }
+}
+
+.recordcancel {
+    border: none;
+    color: red;
+    background-color: transparent !important;
+    box-shadow:none;
+}
+
+.recordcancel:hover {
+    box-shadow:none;
+}

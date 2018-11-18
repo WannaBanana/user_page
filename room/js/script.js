@@ -306,6 +306,9 @@ $(document).ready(function () {
                             <td>${last_element.title}</td>
                             <td>${last_element.repeat_type ? last_element.repeat_type : ""}</td>
                             <td>${last_element.state}</td>
+                            <td>
+                            <button class="btn recordcancel" id="cancel">取消</button>
+                            </td>
                             </tr>`;
                         }
                     }
@@ -356,6 +359,9 @@ $(document).ready(function () {
                                 <td>${new Date(last_element.end).toLocaleTimeString().replace(":00", "")}</td>
                                 <td>${last_element.title}</td>
                                 <td>${last_element.state}</td>
+                                <td>
+                                <button class="btn recordcancel" id="cancel">取消</button>
+                                </td>
                                 </tr>`;
                         }
                     }
@@ -363,6 +369,12 @@ $(document).ready(function () {
             }
         }
         $(`#classroom-content`).html(str);
+    }
+
+    $(document).on('click', '#cancel', revervationCancel);
+
+    function revervationCancel() {
+        confirm("確定要取消預約嗎?");
     }
 
     function getAlert() {
